@@ -1,4 +1,4 @@
-# Jimmy's Journey
+# Jimmy's Journey ![GitHub Logo](/wikireources/characterconceptart_01.png)
 
 ### *Game developed by [Roman Serna](https://github.com/Raist3D), [Alvaro Santisteban](https://github.com/Montalx) & [Vladic Cebanu](https://github.com/kalyer)*
 
