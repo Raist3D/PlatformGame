@@ -1,4 +1,5 @@
-# 2.5 Platform Game
+# Jimmy's Journey
+
 ### *Game developed by [Roman Serna(Albacete)](https://github.com/Raist3D), [Alvaro Santisteban](https://github.com/Montalx) & [Vladic](https://github.com/kalyer)*
 
 ## Lore
@@ -7,7 +8,3 @@
 
 ## Project Features
 - As a player, your main objective is to pass through the level going from a point A to B. In your path you will have to defeat different enemies (that will change depending on the level) combining platforms, puzzles and using your different skills to help you.   You will only have 3 lives for the entire stage, and if you die you’ll start from the beginning. 
-
-## 
-
- Jimmy's Journey
