@@ -1,6 +1,6 @@
 # Jimmy's Journey 
 
-### *Game developed by [Roman Serna](https://github.com/Raist3D), [Alvaro Santisteban](https://github.com/Montalx) & [Vladic Cebanu](https://github.com/kalyer)*
+### *Game developed by [Alvaro Santisteban](https://github.com/Montalx) & [Vladic Cebanu](https://github.com/kalyer)*
 
 ## Game description
 
