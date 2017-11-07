@@ -1,6 +1,6 @@
 # Jimmy's Journey 
 
-### *Game developed by [Alvaro Santisteban](https://github.com/Montalx) & [Vladic Cebanu](https://github.com/kalyer)*
+### *Game developed by [Álvaro Santisteban](https://github.com/Montalx) & [Vladic Cebanu](https://github.com/kalyer)*
 
 ## Game description
 
