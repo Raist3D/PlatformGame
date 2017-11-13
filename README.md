@@ -19,10 +19,10 @@
 ## Contact
 
 ### **Álvaro Santisteban**  
-**Mail:** alvarosantis97@gmail.com   
+**Mail:** alvarosantisteban2016@cev.com
 
 ### **Vladislav Cebanu**   
-**Mail:**
+**Mail:** vladislavcebanu2016@cev.com
 
 
 
