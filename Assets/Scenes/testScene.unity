@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -112,6 +112,46 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &170175024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 170175026}
+  - component: {fileID: 170175025}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &170175025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170175024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cba714521af32f4b8eb9f902998c91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &170175026
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170175024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.997988, y: 1.3715453, z: 3.571674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527773049
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,8 +160,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 527773052}
-  - component: {fileID: 527773051}
   - component: {fileID: 527773050}
+  - component: {fileID: 527773053}
+  - component: {fileID: 527773051}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -152,34 +193,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 527773049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5596f460a38f8cd4090bd1fee040de2e, type: 3}
+  m_Script: {fileID: 11500000, guid: ed6c259926a2ad34a84d3492aec0fd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  rb: {fileID: 527773050}
-  speedWalk: 5
-  speedRun: 8
-  anim: {fileID: 0}
-  facingRight: 0
-  meshTransform: {fileID: 1294233838}
-  groundChecker: {fileID: 889254645}
-  halfSize: {x: 0.5, y: 0.08, z: 0.5}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
   isGrounded: 0
-  wallChecker: {fileID: 1080739871}
-  wallHalfSize: {x: 0.1, y: 0.8, z: 0.5}
-  wallMask:
-    serializedVersion: 2
-    m_Bits: 512
+  wasGroundedLastFrame: 0
+  justGotGrounded: 0
+  justNotGrounded: 0
+  isFalling: 0
+  isCeiling: 0
+  wasCeilingLastFrame: 0
+  justGotCeiling: 0
+  justNotCeiling: 0
   isTouchingWall: 0
-  ceilingChecker: {fileID: 761045127}
-  ceilingHalfSize: {x: 0.5, y: 0.08, z: 0.5}
-  ceilingMask:
-    serializedVersion: 2
-    m_Bits: 512
-  isTouchingCeiling: 0
+  wasTouchingWallLastFrame: 0
+  justGotTouchingWall: 0
+  justNotTouchingWall: 0
+  groundFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  maxHits: 0
+  groundBoxPos: {x: 0, y: 0}
+  groundBoxSize: {x: 0, y: 0}
+  wallBoxPos: {x: 0, y: 0}
+  wallBoxSize: {x: 0, y: 0}
+  topBoxPos: {x: 0, y: 0}
+  topBoxSize: {x: 0, y: 0}
 --- !u!4 &527773052
 Transform:
   m_ObjectHideFlags: 0
@@ -194,6 +244,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527773053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527773049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5596f460a38f8cd4090bd1fee040de2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  canMove: 1
+  canJump: 1
+  running: 0
+  isFacingRight: 1
+  isJumping: 0
+  rb: {fileID: 0}
+  collisions: {fileID: 0}
+  walkSpeed: 2
+  runSpeed: 3
+  movementSpeed: 3
+  jumpWalkForce: 3
+  jumpRunForce: 3
+  jumpForce: 3
+  axis: {x: 1, y: 1}
+  horizontalSpeed: 5
 --- !u!1 &624709312
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +401,10 @@ Prefab:
     - target: {fileID: 4640710748229122, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
       propertyPath: m_LocalScale.y
       value: 27.646646
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003040912898828, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
@@ -500,6 +581,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.4391362
       objectReference: {fileID: 0}
+    - target: {fileID: 1003040912898828, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
   m_IsPrefabParent: 0
@@ -670,6 +755,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 27.646646
       objectReference: {fileID: 0}
+    - target: {fileID: 1003040912898828, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
   m_IsPrefabParent: 0
@@ -736,6 +825,10 @@ Prefab:
     - target: {fileID: 1147749137778192, guid: 9f1921d30eb49a641a85d21874d2ae11, type: 2}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147749137778192, guid: 9f1921d30eb49a641a85d21874d2ae11, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f1921d30eb49a641a85d21874d2ae11, type: 2}
