@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
+    public enum State { Default, Dead, God }
+    public State state;
+
+
     [Header("Physics")]
     public float jumpForce;
     public Rigidbody rb;
@@ -77,8 +81,8 @@ using UnityEngine;
 
         //Animation
 
-       // anim.SetBool("isGrounded", isGrounded);
-       //anim.SetFloat("speed", Mathf.Abs(axis));
+        /*anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("speed", Mathf.Abs(axis));*/
     }
 
     void FixedUpdate()
@@ -141,171 +145,4 @@ using UnityEngine;
         Gizmos.color = Color.yellow;
         if (ceilingChecker != null) Gizmos.DrawWireCube(ceilingChecker.position, ceilingHalfSize * 2);
     }
-}
-*/
-
-    [RequireComponent(typeof(PlayerCollisions))]
-public class PlayerBehaviour : MonoBehaviour
-{
-    public enum State { Default, Dead, God }
-    public State state;
-
-    [Header("State")]
-    public bool canMove = true;
-    public bool canJump = true;
-    public bool running = false;
-    public bool isFacingRight = true;
-    public bool isJumping = false;
-    [Header("Physics")]
-    public Rigidbody rb;
-    public PlayerCollisions collisions;
-    [Header("Speed properties")]
-    public float walkSpeed = 2;
-    public float runSpeed = 3;
-    public float movementSpeed;
-    [Header("Force properties")]
-    public float jumpWalkForce;
-    public float jumpRunForce;
-    public float jumpForce;
-    [Header("Movement")]
-    public Vector2 axis;
-    public float horizontalSpeed;
-    //[Header("Transforms")]
-    //public Transform flipTransform;
-    [Header("Graphics")]
-    //public SpriteRenderer rend;
-    private Animator anim;
-
-    void Start()
-    {
-        collisions = GetComponent<PlayerCollisions>();
-        rb = GetComponent<Rigidbody>();
-
-        collisions.MyStart();
-
-        isFacingRight = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        switch (state)
-        {
-            case State.Default:
-                DefaultUpdate();
-                break;
-            case State.Dead:
-                break;
-            case State.God:
-                break;
-            default:
-                break;
-        }
-    }
-
-    void DefaultUpdate()
-    {
-        //Calcule el movimiento en horizontal
-        HorizontalMovement();
-        //Saltar
-
-        //Anmaciones
-        /*anim.SetBool("isGrounded", collisions.isGrounded);
-        anim.SetFloat("speedX", Mathf.Abs(rb.velocity.x));
-        anim.SetFloat("speedY", Mathf.Abs(rb.velocity.y));*/
-    }
-
-    private void FixedUpdate()
-    {
-        collisions.MyFixedUpdate();
-
-        if (isJumping)
-        {
-            isJumping = false;
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-        }
-        //Aplicaremos el movimiento
-        rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
-    }
-
-    void HorizontalMovement()
-    {
-        if (!canMove)
-        {
-            horizontalSpeed = 0;
-            return;
-        }
-
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-
-        if (-0.1f < axis.x && axis.x < 0.1f)
-        {
-            horizontalSpeed = 0;
-            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
-            return;
-        }
-
-        if (collisions.isTouchingWall)
-        {
-            if ((isFacingRight && axis.x > 0.1f) || (!isFacingRight && axis.x < -0.1f))
-            {
-                horizontalSpeed = 0;
-                return;
-            }
-        }
-
-        if (isFacingRight && axis.x < -0.1f) Flip();
-        if (!isFacingRight && axis.x > 0.1f) Flip();
-
-        if (running) movementSpeed = runSpeed;
-        else movementSpeed = walkSpeed;
-
-        horizontalSpeed = axis.x * movementSpeed;
-    }
-    void VerticalMovement()
-    {
-        /*
-         * bool lookingUp
-         * bool lookingDown
-         * bool crouch
-         */
-    }
-    void Jump(float force)
-    {
-        jumpForce = force;
-        isJumping = true;
-    }
-    void Flip()
-    {
-        //rend.flipX = !rend.flipX;
-        isFacingRight = !isFacingRight;
-        collisions.Flip(isFacingRight);
-    }
-
-
-    #region Public functions
-    public void SetAxis(Vector2 inputAxis)
-    {
-        axis = inputAxis;
-    }
-    public void JumpStart()
-    {
-        if (!canJump) return;
-
-        if (state == State.Default)
-        {
-            if (collisions.isGrounded)
-            {
-                if (running) Jump(jumpRunForce);
-                else Jump(jumpWalkForce);
-            }
-        }
-
-    }
-    public void Damage(int hit)
-    {
-
-    }
-    #endregion
 }
