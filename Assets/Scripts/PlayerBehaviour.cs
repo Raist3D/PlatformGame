@@ -56,12 +56,14 @@ public class PlayerBehaviour : MonoBehaviour
         facingRight = true;
         speed = speedWalk;
         currentDashTime = maxDashTime;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         axis = Input.GetAxis("Horizontal") * speed;
+
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -104,8 +106,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Animation
 
-    /*anim.SetBool("isGrounded", isGrounded);
-    anim.SetFloat("speed", Mathf.Abs(axis));*/
+    //anim.SetBool("isGrounded", isGrounded);
+    anim.SetFloat("speed", Mathf.Abs(axis));
 }
 
     void FixedUpdate()

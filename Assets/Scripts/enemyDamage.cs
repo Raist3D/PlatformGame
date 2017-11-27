@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collisions : MonoBehaviour {
+public class enemyDamage : MonoBehaviour
+{
+    public float damage;
+    public float pushBackForce;
+
+    float nextDamage;
 
 	// Use this for initialization
 	void Start () {
