@@ -18,6 +18,13 @@ public class PlayerBehaviour : MonoBehaviour
     private bool jump;
     private bool doubleJump;
 
+    public Vector3 moveDirection;
+    public float maxDashTime = 1.0f;
+    public float dashSpeed;
+    public float dashStoppingSpeed = 0.1f;
+
+    private float currentDashTime;
+
 
     [Header("Graphics")]
     public Animator anim;
@@ -48,6 +55,8 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         facingRight = true;
         speed = speedWalk;
+        currentDashTime = maxDashTime;
+
 
     }
 
@@ -73,17 +82,33 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) speed = speedRun;
-        else if (Input.GetKeyUp(KeyCode.LeftShift)) speed = speedWalk;
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            currentDashTime = 0.0f;
+        }
+        if (currentDashTime < maxDashTime)
+        {
+            moveDirection = new Vector3(dashSpeed, 0, 0);
+            currentDashTime += dashStoppingSpeed;
+        }
+
+        //else if (Input.GetKeyUp(KeyCode.LeftShift)) speed = speedWalk;
+
+        else
+        {
+            moveDirection = Vector3.zero;
+        }
+        //controller.move(moveDirection * Time.deltaTime);
+
 
         if (axis > 0 && !facingRight) Flip();
         else if (axis < 0 && facingRight) Flip();
 
-        //Animation
+    //Animation
 
-        /*anim.SetBool("isGrounded", isGrounded);
-        anim.SetFloat("speed", Mathf.Abs(axis));*/
-    }
+    /*anim.SetBool("isGrounded", isGrounded);
+    anim.SetFloat("speed", Mathf.Abs(axis));*/
+}
 
     void FixedUpdate()
     {
