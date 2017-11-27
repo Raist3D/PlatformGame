@@ -10,7 +10,15 @@ public class InputManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        InputPause();
+    }
+
+    void InputPause()
+    {
+        if(Input.GetButtonDown("Cancel")) Debug.Log("Pause game");
+    }
+
+
 }

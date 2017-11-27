@@ -56,8 +56,6 @@ public class PlayerBehaviour : MonoBehaviour
         facingRight = true;
         speed = speedWalk;
         currentDashTime = maxDashTime;
-
-
     }
 
     // Update is called once per frame
