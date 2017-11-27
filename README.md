@@ -4,7 +4,7 @@
   
     
     
-![FunLabGames](/WikiResources/FunLabLOGO.png)
+![FunLabGames](WikiResources/Jimmy_Journey.png)
 
 ## Game description
 
