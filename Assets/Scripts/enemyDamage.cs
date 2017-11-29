@@ -50,7 +50,7 @@ public class enemyDamage : MonoBehaviour
     {
         if (nextDamage <= Time.time)
         {
-            playerHealth.hitDamage(damage);
+            playerHealth.addDamage(damage);
             nextDamage = Time.time + damageRate;
 
             pushBack(player.transform);
@@ -59,7 +59,13 @@ public class enemyDamage : MonoBehaviour
 
     void pushBack (Transform pushedObject)
     {
+        Vector3 pushDirection = new Vector3((pushedObject.position.x - transform.position.x), 0, 0).normalized;
+        pushDirection *= pushBackForce;
 
+
+        Rigidbody pushedRb = pushedObject.GetComponent<Rigidbody>();
+        pushedRb.velocity = Vector3.zero;
+        pushedRb.AddForce(pushDirection, ForceMode.Impulse);
     }
 
     

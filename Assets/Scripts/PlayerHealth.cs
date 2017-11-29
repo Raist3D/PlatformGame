@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 		
 	}
 
-    public void hitDamage (float damage)
+    public void addDamage (float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
