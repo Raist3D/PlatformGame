@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meleeAttack : MonoBehaviour
+public class MeleeAttack : MonoBehaviour
 {
     public float damage;
 

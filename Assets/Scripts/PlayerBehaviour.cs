@@ -106,8 +106,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Animation
 
-    //anim.SetBool("isGrounded", isGrounded);
-    //anim.SetFloat("speed", Mathf.Abs(axis));
+    anim.SetBool("isGrounded", isGrounded);
+    anim.SetFloat("speed", Mathf.Abs(axis));
 }
 
     void FixedUpdate()
