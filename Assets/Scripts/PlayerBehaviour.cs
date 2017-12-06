@@ -77,7 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     doubleJump = true;
                     jump = true;
-                    //anim.SetTrigger("doubleJump");
+                    anim.SetTrigger("doubleJump");
                 }
             }
         }
@@ -106,7 +106,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Animation
 
-    //anim.SetBool("isGrounded", isGrounded);
+    anim.SetBool("isGrounded", isGrounded);
     anim.SetFloat("speed", Mathf.Abs(axis));
 }
 
