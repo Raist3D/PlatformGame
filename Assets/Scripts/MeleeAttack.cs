@@ -33,9 +33,10 @@ public class MeleeAttack : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        float attack = Input.GetAxis("Fire1");
+        //float attack = Input.GetAxis("Fire1");
+        bool attack = Input.GetButtonDown("Fire1");
 
-        if (attack > 0 && nextMelee < Time.time)
+        if (attack && nextMelee < Time.time)
         {
             anim.SetTrigger("meleeAttack");
             nextMelee = Time.time + attackRate;

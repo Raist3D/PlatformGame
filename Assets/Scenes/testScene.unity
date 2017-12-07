@@ -447,7 +447,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!4 &879903262
 Transform:
@@ -472,7 +472,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4201522005311294, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.58
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4201522005311294, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
       propertyPath: m_LocalPosition.y
@@ -595,6 +595,21 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114913536484691730, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+        type: 2}
+      propertyPath: dashSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 54595040361394906, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114913536484691730, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+        type: 2}
+      propertyPath: jumpForce
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
   m_IsPrefabParent: 0
@@ -693,6 +708,10 @@ Prefab:
     - target: {fileID: 1003040912898828, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003040912898828, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 700109193e9c80e41ac209e85a9992a5, type: 2}
@@ -857,7 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  damageRate: 0
+  damageRate: 1
   pushBackForce: 50
 --- !u!23 &1633672205
 MeshRenderer:

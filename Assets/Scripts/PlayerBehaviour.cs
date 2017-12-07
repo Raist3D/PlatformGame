@@ -7,24 +7,23 @@ public class PlayerBehaviour : MonoBehaviour
     public enum State { Default, Dead, God }
     public State state;
 
+    public bool gravity;
 
     [Header("Physics")]
     public float jumpForce;
     public Rigidbody rb;
     private float axis;
-    private float speed;
     public float speedWalk;
-    public float speedRun;
     private bool jump;
     private bool doubleJump;
 
     public Vector3 moveDirection;
-    public float maxDashTime = 1.0f;
+    private bool canDash;
+    private bool isDashing;
+    private float timeDash;
     public float dashSpeed;
-    public float dashStoppingSpeed = 0.1f;
 
     private float currentDashTime;
-
 
     [Header("Graphics")]
     public Animator anim;
@@ -54,16 +53,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         facingRight = true;
-        speed = speedWalk;
-        currentDashTime = maxDashTime;
-       // anim = GetComponent<Animator>();
+        canDash = true;
+        gravity = true;
+        // anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        axis = Input.GetAxis("Horizontal") * speed;
-
+        axis = Input.GetAxis("Horizontal") * speedWalk;
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -82,16 +80,6 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            currentDashTime = 0.0f;
-        }
-        if (currentDashTime < maxDashTime)
-        {
-            moveDirection = new Vector3(dashSpeed, 0, 0);
-            currentDashTime += dashStoppingSpeed;
-        }
-
         //else if (Input.GetKeyUp(KeyCode.LeftShift)) speed = speedWalk;
 
         else
@@ -100,10 +88,9 @@ public class PlayerBehaviour : MonoBehaviour
         }
         //controller.move(moveDirection * Time.deltaTime);
 
-
         if (axis > 0 && !facingRight) Flip();
         else if (axis < 0 && facingRight) Flip();
-
+        
     //Animation
 
     anim.SetBool("isGrounded", isGrounded);
@@ -127,17 +114,58 @@ public class PlayerBehaviour : MonoBehaviour
         if (hitColliders.Length != 0) isTouchingCeiling = true;
         else isTouchingCeiling = false;
 
-        if (jump)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-            rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+        bool dash = Input.GetButtonDown("Dash");
 
-            jump = false;
+        if (dash && !isGrounded && canDash)
+        {
+            if (facingRight)
+                rb.velocity = new Vector3(rb.velocity.x + dashSpeed, 0, 0);
+                //rb.transform.position = new Vector3(rb.position.x + 1, rb.position.y, 0);
+            else
+                rb.velocity = new Vector3(rb.velocity.x - dashSpeed, 0, 0);
+                //rb.transform.position = new Vector3(rb.position.x - 1, rb.position.y, 0);
+
+            canDash = false;
+            isDashing = true;
+            timeDash = 1f;
+            gravity = false;
         }
 
-        if (isGrounded)
+        if(isDashing)
         {
+            timeDash -= 0.1f;
+
+            if (timeDash <= 0.0f)
+            {
+                isDashing = false;
+                canDash = true;
+                gravity = true;
+                rb.velocity = Vector3.zero;
+            }
+                
+        }
+        else
+        {
+            if (jump)
+            {
+                //rb.velocity = new Vector3(rb.velocity.x, 5f, 0);
+                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+
+                jump = false;
+            }
+        }
+
+        //if (isGrounded) //NO MOVERSE EN EL AIRE
+        //{
             if (doubleJump) doubleJump = false;
+        if(!isDashing)
+            rb.velocity = new Vector3(axis, rb.velocity.y, 0);
+            //rb.AddForce(axis, 0, 0); MODO HIELO 
+        //}
+        if (!isGrounded && gravity)
+        {
+            rb.AddForce(0, -98, 0);
         }
 
         if (isTouchingWall)
@@ -146,7 +174,6 @@ public class PlayerBehaviour : MonoBehaviour
             else if (!facingRight && axis < 0) axis = 0;
         }
 
-        rb.velocity = new Vector3(axis, rb.velocity.y, 0);
     }
 
     void Flip()

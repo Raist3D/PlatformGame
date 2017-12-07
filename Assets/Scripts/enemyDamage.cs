@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyDamage : MonoBehaviour
 {
+
     public float damage;
     public float damageRate;
     public float pushBackForce;
@@ -50,23 +51,22 @@ public class enemyDamage : MonoBehaviour
     {
         if (nextDamage <= Time.time)
         {
-            playerHealth.addDamage(damage);
+            playerHealth.addDamage(damage, player.transform.position.x - transform.position.x);
             nextDamage = Time.time + damageRate;
-
-            pushBack(player.transform);
         }
     }
 
-    void pushBack (Transform pushedObject)
+    /*void pushBack (Transform pushedObject)
     {
+        
         Vector3 pushDirection = new Vector3((pushedObject.position.x - transform.position.x), 0, 0).normalized;
         pushDirection *= pushBackForce;
-
 
         Rigidbody pushedRb = pushedObject.GetComponent<Rigidbody>();
         pushedRb.velocity = Vector3.zero;
         pushedRb.AddForce(pushDirection, ForceMode.Impulse);
-    }
+    }*/
 
+    //llamas a damage de PlayerHealth y le pasas (damage, pushedObject.position.x - transform.position.x
     
 }
