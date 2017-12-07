@@ -17,7 +17,6 @@ public class PlayerBehaviour : MonoBehaviour
     private bool jump;
     private bool doubleJump;
 
-    public Vector3 moveDirection;
     private bool canDash;
     private bool isDashing;
     private float timeDash;
@@ -63,16 +62,30 @@ public class PlayerBehaviour : MonoBehaviour
     {
         axis = Input.GetAxis("Horizontal") * speedWalk;
 
+        if (isGrounded)
+        {
+            jump = false;
+            doubleJump = false;
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
+                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+
+                canDash = true;
                 if (!jump) jump = true;
             }
+
             else
             {
                 if (!doubleJump)
                 {
+                    rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                    rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+
                     doubleJump = true;
                     jump = true;
                     anim.SetTrigger("doubleJump");
@@ -82,10 +95,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         //else if (Input.GetKeyUp(KeyCode.LeftShift)) speed = speedWalk;
 
-        else
-        {
-            moveDirection = Vector3.zero;
-        }
         //controller.move(moveDirection * Time.deltaTime);
 
         if (axis > 0 && !facingRight) Flip();
@@ -138,40 +147,22 @@ public class PlayerBehaviour : MonoBehaviour
             if (timeDash <= 0.0f)
             {
                 isDashing = false;
-                canDash = true;
                 gravity = true;
                 rb.velocity = Vector3.zero;
             }
                 
         }
-        else
-        {
-            if (jump)
-            {
-                //rb.velocity = new Vector3(rb.velocity.x, 5f, 0);
-                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-                rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
-
-                jump = false;
-            }
-        }
+        
 
         //if (isGrounded) //NO MOVERSE EN EL AIRE
         //{
-            if (doubleJump) doubleJump = false;
-        if(!isDashing)
+        if(!isDashing && !isTouchingWall)
             rb.velocity = new Vector3(axis, rb.velocity.y, 0);
             //rb.AddForce(axis, 0, 0); MODO HIELO 
         //}
         if (!isGrounded && gravity)
         {
             rb.AddForce(0, -98, 0);
-        }
-
-        if (isTouchingWall)
-        {
-            if (facingRight && axis > 0) axis = 0;
-            else if (!facingRight && axis < 0) axis = 0;
         }
 
     }

@@ -112,6 +112,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!54 &375917744 stripped
+Rigidbody:
+  m_PrefabParentObject: {fileID: 54595040361394906, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+    type: 2}
+  m_PrefabInternal: {fileID: 885617321}
 --- !u!1 &524075484
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &879903261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -610,6 +615,11 @@ Prefab:
       propertyPath: jumpForce
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 114300065525426382, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+        type: 2}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 375917744}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
   m_IsPrefabParent: 0
