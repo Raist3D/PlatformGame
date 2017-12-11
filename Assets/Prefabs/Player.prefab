@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4666347480294406}
   - component: {fileID: 95150878293456660}
+  - component: {fileID: 136636453500276796}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -351,7 +352,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919732555953208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.58, y: -1.473, z: -0.17846012}
+  m_LocalPosition: {x: 0.52, y: -1.473, z: -0.17846012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4666347480294406}
@@ -876,10 +877,10 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919732555953208}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
@@ -891,7 +892,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1735632219945306}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -926,6 +927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHealth: 20
   currentHealth: 0
+  pushBackForce: 0
+  rb: {fileID: 54595040361394906}
 --- !u!114 &114913536484691730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -938,14 +941,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  jumpForce: 10
+  gravity: 0
+  jumpForce: 35
   rb: {fileID: 54595040361394906}
-  speedWalk: 4
-  speedRun: 10
-  moveDirection: {x: 1.13, y: 0, z: 0}
-  maxDashTime: 1
-  dashSpeed: 0
-  dashStoppingSpeed: 0.1
+  speedWalk: 8
+  dashSpeed: 15
   anim: {fileID: 95150878293456660}
   facingRight: 0
   meshTransform: {fileID: 4666347480294406}
@@ -981,7 +981,7 @@ MonoBehaviour:
   damage: 1
   knockBack: 1
   halfSize: {x: 0, y: 0, z: 0}
-  attackRate: 1
+  attackRate: 0.5
   nextMelee: 1
   anim: {fileID: 95150878293456660}
 --- !u!136 &136371612974084574
@@ -993,6 +993,19 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 3.27
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.61, z: 0}
+--- !u!136 &136636453500276796
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891008042869688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
   m_Radius: 0.6
   m_Height: 3.27
   m_Direction: 1
