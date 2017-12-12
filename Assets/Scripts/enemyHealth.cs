@@ -85,7 +85,7 @@ public class enemyHealth : MonoBehaviour
     {
         //quitar movimiento
 
-        AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
+        //AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
 
         Destroy(gameObject.transform.root.gameObject);
 

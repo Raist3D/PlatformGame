@@ -7,6 +7,8 @@ public class MeleeAttack : MonoBehaviour
     public float damage;
 
     public float knockBack;
+    float knockBackRadius;
+
     public Vector3 halfSize;
 
     public float attackRate;
@@ -42,7 +44,20 @@ public class MeleeAttack : MonoBehaviour
             nextMelee = Time.time + attackRate;
 
             //deal damage
-            Collider[] attacked = Physics.OverlapBox(transform.position, halfSize, Quaternion.identity, attackableMask);
+            Collider[] attacked = Physics.OverlapSphere(transform.position, knockBackRadius, attackableMask);
+            //Collider[] attacked = Physics.OverlapBox(transform.position, halfSize, Quaternion.identity, attackableMask);
+
+            int i = 0;
+            while (i < attacked.Length)
+            {
+                if (attacked[i].tag == "Enemy")
+                {
+                    enemyHealth doDamage = attacked[i].GetComponent<enemyHealth>();
+                    doDamage.addDamage(damage);
+                    doDamage.damageFX(transform.position, transform.localEulerAngles);
+                }
+                i++;
+            }
         }
 		
 	}
