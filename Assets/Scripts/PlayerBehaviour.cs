@@ -152,7 +152,6 @@ public class PlayerBehaviour : MonoBehaviour
             }
                 
         }
-        
 
         //if (isGrounded) //NO MOVERSE EN EL AIRE
         //{
