@@ -53,8 +53,8 @@ public class MeleeAttack : MonoBehaviour
                 if (attacked[i].tag == "Enemy")
                 {
                     enemyHealth doDamage = attacked[i].GetComponent<enemyHealth>();
-                    doDamage.addDamage(damage);
-                    doDamage.damageFX(transform.position, transform.localEulerAngles);
+                    doDamage.AddDamage(damage);
+                    doDamage.DamageFX(transform.position, transform.localEulerAngles);
                 }
                 i++;
             }

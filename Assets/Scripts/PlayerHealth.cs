@@ -26,8 +26,9 @@ public class PlayerHealth : MonoBehaviour
 		
 	}
 
-    public void addDamage (float damage, float pos)
+    public void AddDamage (float damage)// float pos)
     {
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -35,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 
         }
 
-        pushBack(pos);
+       // PushBack(pos);
 
     }
 
@@ -46,9 +47,9 @@ public class PlayerHealth : MonoBehaviour
 
 
     //estremece izquierda else estremece derecha
-    void pushBack(float pos)
-
+    void PushBack(float pos)
     {
+        Debug.Log("PUSH");
         if (pos < 1)
             pushBackForce = 1;
 
@@ -57,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
             pushBackForce = -1;
 
 
-        Vector3 pushDirection = new Vector3(pushBackForce, 0, 0).normalized;
+        Vector3 pushDirection = new Vector3(pushBackForce, 1, 0).normalized;
         pushDirection *= pushBackForce;
 
         rb.velocity = Vector3.zero;

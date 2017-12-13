@@ -43,7 +43,7 @@ public class enemyHealth : MonoBehaviour
     {
 		if(onFire && Time.time>nextBurn)
         {
-            addDamage(burnDamage);
+            AddDamage(burnDamage);
             nextBurn += burnInterval;
         }
         if(onFire && Time.time>endBurn)
@@ -53,7 +53,7 @@ public class enemyHealth : MonoBehaviour
         }
 	}
 
-    public void addDamage (float damage)
+    public void AddDamage (float damage)
     {
         enemyHealthSlider.gameObject.SetActive(true);
         damage = damage * damageModifier;
@@ -64,15 +64,15 @@ public class enemyHealth : MonoBehaviour
         enemyHealthSlider.value = currentHealth;
         enemyAudioSource.Play();
 
-        if (currentHealth <= 0) makeDead();
+        if (currentHealth <= 0) MakeDead();
     }
 
-    public void damageFX (Vector3 point, Vector3 rotation)
+    public void DamageFX (Vector3 point, Vector3 rotation)
     {
         //Instantiate(damageParticles, point, Quaternion.Euler(rotation));
     }
 
-    public void addFire()
+    public void AddFire()
     {
         if (!canBurn) return;
         onFire = true;
@@ -81,7 +81,7 @@ public class enemyHealth : MonoBehaviour
         nextBurn = Time.time + burnInterval;
     }
 
-    void makeDead ()
+    void MakeDead ()
     {
         //quitar movimiento
 

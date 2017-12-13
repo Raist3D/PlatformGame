@@ -17,11 +17,11 @@ public class lootPickUp : MonoBehaviour
 		
 	}
 
-    void onTriggerEnter (Collider other)
+    void OnTriggerEnter (Collider other)
     {
         if(other.tag == "Player")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
