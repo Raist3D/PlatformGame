@@ -55,6 +55,7 @@ public class PlayerBehaviour : MonoBehaviour
         canDash = true;
         gravity = true;
         // anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
