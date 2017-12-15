@@ -2856,6 +2856,7 @@ GameObject:
   - component: {fileID: 973464756}
   - component: {fileID: 973464755}
   - component: {fileID: 973464754}
+  - component: {fileID: 973464758}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2925,6 +2926,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973464758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 973464753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a368492ff86ad5d47b31b948f666c2e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: b4e448dc10c60494ebb55d51fd7c9b1c, type: 3}
+  fadeSpeed: 0.8
 --- !u!1 &1021440591
 GameObject:
   m_ObjectHideFlags: 0
