@@ -57,6 +57,7 @@ public class MeleeAttack : MonoBehaviour
                     doDamage.DamageFX(transform.position, transform.localEulerAngles);
                 }
                 i++;
+
             }
         }
 		
