@@ -21,4 +21,6 @@ public class Currency : MonoBehaviour
             gold = 0;
         }
     }
+
+
 }
