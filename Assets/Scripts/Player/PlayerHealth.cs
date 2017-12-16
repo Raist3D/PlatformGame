@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Rigidbody rb;
 
+    public PlayerBehaviour playerBh;
+
     // Use this for initialization
     void Start ()
     {
@@ -28,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddDamage (float damage)// float pos)
     {
-
+        playerBh.Stun();
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

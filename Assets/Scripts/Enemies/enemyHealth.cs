@@ -25,6 +25,8 @@ public class enemyHealth : MonoBehaviour
     public float burnInterval;
     float endBurn;
 
+    public EnemyBehaviour enemyBh;
+
     public Slider enemyHealthSlider;
     AudioSource enemyAudioSource;
 
@@ -55,6 +57,7 @@ public class enemyHealth : MonoBehaviour
 
     public void AddDamage (float damage)
     {
+
         enemyHealthSlider.gameObject.SetActive(true);
         damage = damage * damageModifier;
 
@@ -64,7 +67,10 @@ public class enemyHealth : MonoBehaviour
         enemyHealthSlider.value = currentHealth;
         enemyAudioSource.Play();
 
-        if (currentHealth <= 0) MakeDead();
+        enemyBh.Stun();
+
+
+        if(currentHealth <= 0) MakeDead();
     }
 
     public void DamageFX (Vector3 point, Vector3 rotation)

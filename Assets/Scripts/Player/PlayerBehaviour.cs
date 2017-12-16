@@ -17,12 +17,23 @@ public class PlayerBehaviour : MonoBehaviour
     private bool jump;
     private bool doubleJump;
 
+    [Header("Dash")]
     private bool canDash;
     private bool isDashing;
     private float timeDash;
     public float dashSpeed;
-
     private float currentDashTime;
+
+    [Header("Weapon Skill Charge")]
+    private bool canCharge;
+    private bool isCharging;
+    private float timeCharge;
+    public float chargeSpeed;
+    private float currentChargeTime;
+    bool canDealDamage;
+    public float chargeDamage;
+    public Vector2 directionForce;
+    public BoxCollider chargeTrigger;
 
     [Header("Graphics")]
     public Animator anim;
@@ -47,15 +58,20 @@ public class PlayerBehaviour : MonoBehaviour
     public LayerMask ceilingMask;
     public bool isTouchingCeiling;
 
+    public bool stunDamaged;
+    public float stunTime;
+    public float stunFinish;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        chargeTrigger = gameObject.GetComponentInChildren<BoxCollider>();
         facingRight = true;
         canDash = true;
+        canCharge = true;
         gravity = true;
         // anim = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -65,11 +81,12 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (isGrounded)
         {
+            canCharge = true;
             jump = false;
             doubleJump = false;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
@@ -79,6 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
                 canDash = true;
                 if (!jump) jump = true;
             }
+
 
             else
             {
@@ -124,9 +142,47 @@ public class PlayerBehaviour : MonoBehaviour
         if (hitColliders.Length != 0) isTouchingCeiling = true;
         else isTouchingCeiling = false;
 
+        if(stunDamaged)
+        {
+            if(stunFinish < Time.time)
+                stunDamaged = false;
+        }
+
+        bool charge = Input.GetButtonDown("Fire3");
+        if(charge)
+        {
+            if(charge && canCharge && isGrounded)
+            {
+                if(facingRight)
+                    rb.velocity = new Vector3(rb.velocity.x + chargeSpeed, 0, 0);
+                //rb.transform.position = new Vector3(rb.position.x + 1, rb.position.y, 0);
+                else
+                    rb.velocity = new Vector3(rb.velocity.x - chargeSpeed, 0, 0);
+                //rb.transform.position = new Vector3(rb.position.x - 1, rb.position.y, 0);
+
+                canCharge = false;
+                isCharging = true;
+                timeCharge = 1f;
+                gravity = false;
+            }
+
+            if(isCharging)
+            {
+                timeCharge -= 0.1f;
+
+                if(timeCharge <= 0.0f)
+                {
+                    isCharging = false;
+                    gravity = true;
+                    rb.velocity = Vector3.zero;
+                }
+
+            }
+        }
+
         bool dash = Input.GetButtonDown("Dash");
 
-        if (dash && !isGrounded && canDash)
+        if(dash && !isGrounded && canDash)
         {
             if (facingRight)
                 rb.velocity = new Vector3(rb.velocity.x + dashSpeed, 0, 0);
@@ -156,7 +212,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         //if (isGrounded) //NO MOVERSE EN EL AIRE
         //{
-        if(!isDashing && !isTouchingWall)
+        if(!isDashing && !isTouchingWall && !stunDamaged && !isCharging)
             rb.velocity = new Vector3(axis, rb.velocity.y, 0);
             //rb.AddForce(axis, 0, 0); MODO HIELO 
         //}
@@ -176,6 +232,34 @@ public class PlayerBehaviour : MonoBehaviour
         facingRight = !facingRight;
     }
 
+    void OnTriggerEnter(Collider chargeTrigger)
+    {
+        if(chargeTrigger.tag == "Enemy" && isCharging)
+        {
+            enemyHealth doDamage = chargeTrigger.GetComponent<enemyHealth>();
+            //doDamage.AddDamage(damage);
+            doDamage.DamageFX(transform.position, transform.localEulerAngles);
+            canDealDamage = false;
+            DamageEnemy(chargeTrigger.gameObject);
+
+
+        }
+    }
+    void DamageEnemy(GameObject who)
+    {
+        who.GetComponent<enemyHealth>().AddDamage(chargeDamage);
+
+        Vector3 dir = directionForce;
+        if(who.transform.position.x < this.transform.position.x) dir.x *= -1;
+
+        Rigidbody rb = who.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
+
+        rb.AddForce(dir, ForceMode.Impulse);
+    }
+
+
+
     void OnDrawGizmos()
     {
         //Draw overlap boxes
@@ -187,5 +271,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         if (ceilingChecker != null) Gizmos.DrawWireCube(ceilingChecker.position, ceilingHalfSize * 2);
+    }
+
+    public void Stun()
+    {
+        stunDamaged = true;
+        stunFinish = Time.time + stunTime;
     }
 }

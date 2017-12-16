@@ -9,7 +9,7 @@ public class Fading : MonoBehaviour
 
     private int drawDepth = -1000;  // the texture's order in the draw hierarchy: a low number means it renders on top
     private float alpha = 1.0f;   // the texture's alpha value between 0 and 1
-    private int fadeDir = -1;   // the direction to fade: in = -1 or out = 1
+    public int fadeDir = -1;   // the direction to fade: in = -1 or out = 1
 
     void OnGUI()
     {

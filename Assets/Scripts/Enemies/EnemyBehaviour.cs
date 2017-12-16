@@ -19,6 +19,10 @@ public class EnemyBehaviour : MonoBehaviour
     float movSpeed;
     bool running;
 
+    public bool stunDamaged;
+    public float stunTime;
+    public float stunFinish;
+
     Rigidbody rb;
     Animator anim;
     Transform detectedPlayer;
@@ -42,7 +46,13 @@ public class EnemyBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-		if (detected)
+        if(stunDamaged)
+        {
+            if(stunFinish < Time.time)
+                stunDamaged = false;
+        }
+
+        if(detected)
         {
             if(detectedPlayer.position.x < transform.position.x && facingRight) Flip();
             else if(detectedPlayer.position.x > transform.position.x && !facingRight) Flip();
@@ -54,8 +64,8 @@ public class EnemyBehaviour : MonoBehaviour
 
             }
         }
-        if(detected && !facingRight) rb.velocity = new Vector3((movSpeed * -1), rb.velocity.y, 0);
-        else if (detected && facingRight) rb.velocity = new Vector3((movSpeed), rb.velocity.y, 0);
+        if(detected && !facingRight && !stunDamaged) rb.velocity = new Vector3((movSpeed * -1), rb.velocity.y, 0);
+        else if (detected && facingRight && !stunDamaged) rb.velocity = new Vector3((movSpeed), rb.velocity.y, 0);
 
         if (!running && detected)
         {
@@ -98,6 +108,13 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
     }
+
+    public void Stun()
+    {
+        stunDamaged = true;
+        stunFinish = Time.time + stunTime;
+    }
+
 
     void Flip ()
     {

@@ -9,6 +9,11 @@ public class enemyDamage : MonoBehaviour
     //public float damageRate;
     public Vector2 directionForce;
 
+    private Transform transformPlayer;
+    public float distanceFromPlayer;
+    public float rangeDetection;
+
+    public float stunTime;
    // float nextDamage;
 
 //bool playerInRange = false;
@@ -17,15 +22,16 @@ public class enemyDamage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       // nextDamage = Time.time;
+        // nextDamage = Time.time;
         //player = GameObject.FindGameObjectWithTag("Player");
         //playerHealth = player.GetComponent<PlayerHealth>();
-
+        transformPlayer = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        distanceFromPlayer = Vector3.Distance(transform.position, transformPlayer.position);
         //if (playerInRange) Attack();
     }
 
@@ -35,6 +41,7 @@ public class enemyDamage : MonoBehaviour
         {
             //playerInRange = true;
             DamagePlayer(other.gameObject);
+
 
         }
     }
