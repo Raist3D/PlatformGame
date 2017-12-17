@@ -10,10 +10,8 @@ public class SceneTransitionCounter : MonoBehaviour
     // Use this for initialization
     IEnumerator Start()
     {
-        yield return new WaitForSeconds(3);
-        fading.BeginFade(-1);  // call the fade in function
 
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene("menuScene");
 
 

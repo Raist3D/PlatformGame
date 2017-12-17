@@ -65,7 +65,7 @@ public class enemyHealth : MonoBehaviour
         currentHealth -= damage;
 
         enemyHealthSlider.value = currentHealth;
-        enemyAudioSource.Play();
+        //enemyAudioSource.Play();
 
         enemyBh.Stun();
 

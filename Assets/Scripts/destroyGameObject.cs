@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class destroyGameObject : MonoBehaviour
 {
-
-    public float aliveTime;
-
-	// Use this for initialization
-	void Awake ()
+    void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject, aliveTime);
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-	}
+        if(other.tag == "Destroy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -82,6 +82,7 @@ public class MeleeAttack : MonoBehaviour
         rb.AddForce(dir, ForceMode.Impulse);
     }
 
+
 }
 
 //deal damage

@@ -210,6 +210,7 @@ public class PlayerBehaviour : MonoBehaviour
                 
         }
 
+        //MOVE PLAYER
         //if (isGrounded) //NO MOVERSE EN EL AIRE
         //{
         if(!isDashing && !isTouchingWall && !stunDamaged && !isCharging)

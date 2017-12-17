@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -32,13 +34,14 @@ public class PlayerHealth : MonoBehaviour
     {
         playerBh.Stun();
         currentHealth -= damage;
+
         if (currentHealth <= 0)
         {
             playerDeath();
-
+            SceneManager.LoadScene("DefeatScene");
         }
 
-       // PushBack(pos);
+        // PushBack(pos);
 
     }
 

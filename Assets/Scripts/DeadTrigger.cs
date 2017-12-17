@@ -8,7 +8,6 @@ public class DeadTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("KillPlayer");
             Application.LoadLevel(Application.loadedLevelName);
         }
     }
