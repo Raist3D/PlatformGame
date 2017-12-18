@@ -67,6 +67,15 @@ public class MeleeAttack : MonoBehaviour
             DamageEnemy(weaponTrigger.gameObject);
 
         }
+        if(weaponTrigger.tag == "Interactuable" && canDealDamage)
+        {
+            DestroyItems doDamage = weaponTrigger.GetComponent<DestroyItems>();
+            doDamage.AddDamage(damage);
+            //doDamage.DamageFX(transform.position, transform.localEulerAngles);
+            canDealDamage = false;
+
+        }
+
     }
 
     void DamageEnemy(GameObject who)

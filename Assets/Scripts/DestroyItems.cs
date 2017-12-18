@@ -5,6 +5,15 @@ using UnityEngine;
 public class DestroyItems : MonoBehaviour
 {
 
+    public float enemyMaxHealth;
+    public float currentHealth;
+    public float damageModifier;
+
+    public bool drop;
+    public GameObject dropItem;
+
+
+
     MeleeAttack meleeAtk;
 
 
@@ -29,6 +38,30 @@ public class DestroyItems : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void AddDamage(float damage)
+    {
+
+        damage = damage * damageModifier;
+
+        if(damage <= 0f) return;
+        currentHealth -= damage;
+
+        //enemyAudioSource.Play();
+
+        if(currentHealth <= 0) MakeDead();
+    }
+
+    void MakeDead()
+    {
+        //quitar movimiento
+
+        //AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
+
+        Destroy(gameObject.transform.root.gameObject);
+
+        if(drop) Instantiate(dropItem, transform.position, transform.rotation);
+    }
+
 
 
 
