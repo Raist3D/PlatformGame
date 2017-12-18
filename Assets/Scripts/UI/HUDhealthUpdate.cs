@@ -23,6 +23,6 @@ public class HUDhealthUpdate : MonoBehaviour
     {
 
 
-        HeartUI.sprite = HearthSprites[playerHealth.currentHealth];
+       // HeartUI.sprite = HearthSprites[playerHealth.currentHealth];
 	}
 }

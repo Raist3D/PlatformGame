@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    public enum State { Default, Dead, God }
-    public State state;
 
     public bool gravity;
 
@@ -62,6 +60,8 @@ public class PlayerBehaviour : MonoBehaviour
     public float stunTime;
     public float stunFinish;
 
+    public AudioSource jumpFx;
+
     // Use this for initialization
     void Start()
     {
@@ -92,6 +92,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0, 0);
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+                jumpFx.Play();
 
                 canDash = true;
                 if (!jump) jump = true;
@@ -104,6 +105,7 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     rb.velocity = new Vector3(rb.velocity.x, 0, 0);
                     rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+                    jumpFx.Play();
 
                     doubleJump = true;
                     jump = true;
