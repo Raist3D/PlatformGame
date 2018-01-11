@@ -5334,11 +5334,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4240790835071608, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -21.67
+      value: 360.6
       objectReference: {fileID: 0}
     - target: {fileID: 4240790835071608, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4240790835071608, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9657,7 +9657,22 @@ Prefab:
     - target: {fileID: 114282618249000752, guid: 640d1050498d5fa4694a77b3a89ea395,
         type: 2}
       propertyPath: isActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54054948528042060, guid: 640d1050498d5fa4694a77b3a89ea395,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54054948528042060, guid: 640d1050498d5fa4694a77b3a89ea395,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114282618249000752, guid: 640d1050498d5fa4694a77b3a89ea395,
+        type: 2}
+      propertyPath: spawnRatio
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640d1050498d5fa4694a77b3a89ea395, type: 2}

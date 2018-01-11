@@ -21,7 +21,6 @@ public class bossEnemySpawn : MonoBehaviour
     void Start()
     {
         frameCounter = 0;
-
     }
 
     void Update()
@@ -30,7 +29,7 @@ public class bossEnemySpawn : MonoBehaviour
         if(generateEnemy() && isActive)
         {
             GameObject enemy = Instantiate(enemyPrefab);
-            setEnemyPosition();
+            SetEnemyPosition();
             enemy.transform.position = enemyPosition;
         }
 
@@ -38,7 +37,7 @@ public class bossEnemySpawn : MonoBehaviour
 
     }
 
-    private void setEnemyPosition()
+    private void SetEnemyPosition()
     {
         enemyPosition = new Vector3(((int)(Random.Range(transform.position.x - 20f, transform.position.x - 5))), 2.5f, 0);
     }
@@ -53,7 +52,7 @@ public class bossEnemySpawn : MonoBehaviour
         return false;
     }
 
-    void OnEnterTrigger(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
