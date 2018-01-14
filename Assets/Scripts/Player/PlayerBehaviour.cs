@@ -56,9 +56,16 @@ public class PlayerBehaviour : MonoBehaviour
     public LayerMask ceilingMask;
     public bool isTouchingCeiling;
 
+    [Header("Stun")]
     public bool stunDamaged;
     public float stunTime;
     public float stunFinish;
+
+    [Header("Immune")]
+    public bool immuneDamaged;
+    public bool immuneTimeOutActive;
+    public float immuneTime;
+    public float immuneFinish;
 
     public AudioSource jumpFx;
 
@@ -149,6 +156,15 @@ public class PlayerBehaviour : MonoBehaviour
             if(stunFinish < Time.time)
                 stunDamaged = false;
         }
+
+        if(immuneDamaged)
+        {
+            if(immuneTimeOutActive)
+            {
+                BeginTimeOut();
+            }
+        }
+
 
         bool charge = Input.GetButtonDown("Fire3");
         if(charge)
@@ -280,5 +296,19 @@ public class PlayerBehaviour : MonoBehaviour
     {
         stunDamaged = true;
         stunFinish = Time.time + stunTime;
+    }
+
+    public void Immune()
+    {
+        immuneDamaged = true;
+        immuneFinish = Time.time + immuneTime;
+    }
+
+    public IEnumerator BeginTimeOut()
+    {
+        immuneTimeOutActive = true;
+        yield return new WaitForSeconds(3);
+        immuneDamaged = false;
+        immuneTimeOutActive = false;
     }
 }

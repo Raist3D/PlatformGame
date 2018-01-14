@@ -33,6 +33,9 @@ public class PlayerHealth : MonoBehaviour
     public void AddDamage (float damage)// float pos)
     {
         playerBh.Stun();
+        playerBh.Immune();
+        playerBh.BeginTimeOut();
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)

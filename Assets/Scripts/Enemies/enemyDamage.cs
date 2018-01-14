@@ -58,6 +58,12 @@ public class enemyDamage : MonoBehaviour
         rb.AddForce(dir, ForceMode.Impulse);
     }
 
+    void ImmunePlayerTime(GameObject who)
+    {
+
+    }
+
+
   /*  void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -75,18 +81,18 @@ public class enemyDamage : MonoBehaviour
         }
     }
     */
-    /*void pushBack (Transform pushedObject)
-    {
-        
-        Vector3 pushDirection = new Vector3((pushedObject.position.x - transform.position.x), 0, 0).normalized;
-        pushDirection *= pushBackForce;
+  /*void pushBack (Transform pushedObject)
+  {
 
-        Rigidbody pushedRb = pushedObject.GetComponent<Rigidbody>();
-        pushedRb.velocity = Vector3.zero;
-        pushedRb.AddForce(pushDirection, ForceMode.Impulse);
+      Vector3 pushDirection = new Vector3((pushedObject.position.x - transform.position.x), 0, 0).normalized;
+      pushDirection *= pushBackForce;
 
-    }*/
+      Rigidbody pushedRb = pushedObject.GetComponent<Rigidbody>();
+      pushedRb.velocity = Vector3.zero;
+      pushedRb.AddForce(pushDirection, ForceMode.Impulse);
+
+  }*/
 
     //llamas a damage de PlayerHealth y le paso (damage, pushedObject.position.x - transform.position.x
-    
+
 }
