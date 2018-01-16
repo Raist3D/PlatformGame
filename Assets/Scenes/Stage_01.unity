@@ -5402,6 +5402,16 @@ Prefab:
       propertyPath: knockBack
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114592910043607136, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+        type: 2}
+      propertyPath: directionForce.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114592910043607136, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36,
+        type: 2}
+      propertyPath: directionForce.x
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136456685146226706, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
     - {fileID: 136523279577001864, guid: 1d52ef2ecbdd4e341aa36053c8bbfb36, type: 2}
