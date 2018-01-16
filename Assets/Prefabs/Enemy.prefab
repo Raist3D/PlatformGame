@@ -244,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597867750527870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 157.89, y: -3.72, z: 0}
+  m_LocalPosition: {x: 133.49, y: -3.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224890326899155708}
@@ -626,6 +626,10 @@ MonoBehaviour:
   stunDamaged: 0
   stunTime: 1
   stunFinish: 0
+  direction: {x: 1, y: 0}
+  speed: 2
+  timePatrol: 2
+  timeCounter: 0
 --- !u!114 &114489987655247166
 MonoBehaviour:
   m_ObjectHideFlags: 1

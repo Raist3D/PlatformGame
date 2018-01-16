@@ -612,6 +612,10 @@ MonoBehaviour:
   stunDamaged: 0
   stunTime: 1
   stunFinish: 0
+  direction: {x: 0, y: 0}
+  speed: 0
+  timePatrol: 0
+  timeCounter: 0
 --- !u!82 &59290950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -901,6 +905,10 @@ MonoBehaviour:
   stunDamaged: 0
   stunTime: 1
   stunFinish: 0
+  direction: {x: 0, y: 0}
+  speed: 0
+  timePatrol: 0
+  timeCounter: 0
 --- !u!82 &80995274
 AudioSource:
   m_ObjectHideFlags: 0

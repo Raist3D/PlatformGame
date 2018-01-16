@@ -23,6 +23,11 @@ public class EnemyBehaviour : MonoBehaviour
     public float stunTime;
     public float stunFinish;
 
+    public Vector2 direction;
+    public float speed;
+    public float timePatrol;
+    public float timeCounter;
+
     Rigidbody rb;
     Animator anim;
     Transform detectedPlayer;
@@ -46,6 +51,18 @@ public class EnemyBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        if(!detected && !stunDamaged)
+        {
+            transform.root.Translate(direction * speed * Time.deltaTime);
+
+            if(timeCounter >= timePatrol)
+            {
+                speed *= -1;
+                timeCounter = 0;
+            }
+            else timeCounter += Time.deltaTime;
+        }
+
         if(stunDamaged)
         {
             if(stunFinish < Time.time)
