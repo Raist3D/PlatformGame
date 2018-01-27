@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     public float fullHealth;
     public float currentHealth;
+    public bool isImmune;
 
     public float pushBackForce;
 
@@ -20,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     void Start ()
     {
         currentHealth = fullHealth;
-		
+        isImmune = false;
 	}
 	
 	// Update is called once per frame
@@ -30,22 +31,20 @@ public class PlayerHealth : MonoBehaviour
 		
 	}
 
-    public void AddDamage (float damage)// float pos)
+    public void AddDamage (float damage, Vector3 knock)// float pos)
     {
-        playerBh.Stun();
-        playerBh.Immune();
-        playerBh.BeginTimeOut();
-
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
+        if(!playerBh.immune)
         {
-            playerDeath();
-            SceneManager.LoadScene("DefeatScene");
+            playerBh.Stun(knock);
+
+            currentHealth -= damage;
+
+            if(currentHealth <= 0)
+            {
+                playerDeath();
+                SceneManager.LoadScene("DefeatScene");
+            }
         }
-
-        // PushBack(pos);
-
     }
 
     public void playerDeath()

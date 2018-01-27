@@ -60,12 +60,17 @@ public class PlayerBehaviour : MonoBehaviour
     public bool stunDamaged;
     public float stunTime;
     public float stunFinish;
-
-    [Header("Immune")]
-    public bool immuneDamaged;
-    public bool immuneTimeOutActive;
+    public bool immune;
     public float immuneTime;
-    public float immuneFinish;
+
+    [Header("Potion Throw")]
+    public int potionAmmo;
+    public bool canThrowPotion;
+    public float potionThrowRatio;
+    public float timePotionThrow;
+    public Vector3 potionPosition;
+
+    public GameObject potion;
 
     public AudioSource jumpFx;
 
@@ -78,6 +83,8 @@ public class PlayerBehaviour : MonoBehaviour
         canDash = true;
         canCharge = true;
         gravity = true;
+        canThrowPotion = true;
+        
         // anim = GetComponent<Animator>();
     }
 
@@ -91,6 +98,27 @@ public class PlayerBehaviour : MonoBehaviour
             canCharge = true;
             jump = false;
             doubleJump = false;
+        }
+
+        if (!stunDamaged && Input.GetButtonDown("Fire2"))
+        {
+            if(!canThrowPotion && Time.time > timePotionThrow)
+                canThrowPotion = true;
+
+            if(canThrowPotion)
+            {
+                Debug.Log("tuloko");
+                GameObject poti = Instantiate(potion);
+                poti.transform.position = this.transform.position + potionPosition;
+
+                if(facingRight)
+                    poti.GetComponent<Rigidbody>().velocity = new Vector3(12, 2, 0);
+                else
+                    poti.GetComponent<Rigidbody>().velocity = new Vector3(-12, 2, 0);
+
+                canThrowPotion = false;
+                timePotionThrow = Time.time + 1;
+            }
         }
 
         if(Input.GetButtonDown("Jump"))
@@ -157,12 +185,10 @@ public class PlayerBehaviour : MonoBehaviour
                 stunDamaged = false;
         }
 
-        if(immuneDamaged)
+        if(immune)
         {
-            if(immuneTimeOutActive)
-            {
-                BeginTimeOut();
-            }
+            if(stunFinish + immuneTime < Time.time)
+                immune = false;
         }
 
 
@@ -292,23 +318,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (ceilingChecker != null) Gizmos.DrawWireCube(ceilingChecker.position, ceilingHalfSize * 2);
     }
 
-    public void Stun()
+    public void Stun(Vector3 knock)
     {
         stunDamaged = true;
+        immune = true;
         stunFinish = Time.time + stunTime;
-    }
-
-    public void Immune()
-    {
-        immuneDamaged = true;
-        immuneFinish = Time.time + immuneTime;
-    }
-
-    public IEnumerator BeginTimeOut()
-    {
-        immuneTimeOutActive = true;
-        yield return new WaitForSeconds(3);
-        immuneDamaged = false;
-        immuneTimeOutActive = false;
+        rb.velocity = Vector3.zero;
+        rb.AddForce(knock, ForceMode.Impulse);
     }
 }

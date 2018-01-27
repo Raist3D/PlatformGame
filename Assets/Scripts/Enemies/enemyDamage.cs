@@ -35,7 +35,7 @@ public class enemyDamage : MonoBehaviour
         //if (playerInRange) Attack();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -47,20 +47,10 @@ public class enemyDamage : MonoBehaviour
     }
     void DamagePlayer(GameObject who)
     {
-        who.GetComponent<PlayerHealth>().AddDamage(damage);
-
         Vector3 dir = directionForce;
         if(who.transform.position.x < this.transform.position.x) dir.x *= -1;
 
-        Rigidbody rb = who.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-
-        rb.AddForce(dir, ForceMode.Impulse);
-    }
-
-    void ImmunePlayerTime(GameObject who)
-    {
-
+        who.GetComponent<PlayerHealth>().AddDamage(damage, dir);
     }
 
 

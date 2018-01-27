@@ -89,7 +89,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (startRun < Time.time)
             {
                 movSpeed = runSpeed;
-                anim.SetTrigger("run");
+                //anim.SetTrigger("run");
                 running = true;
             }
         }
@@ -102,7 +102,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             detected = true;
             detectedPlayer = other.transform;
-            anim.SetBool("detected", detected);
+            //anim.SetBool("detected", detected);
 
             if(detectedPlayer.position.x < transform.position.x && facingRight) Flip();
             else if(detectedPlayer.position.x > transform.position.x && !facingRight) Flip();
@@ -118,7 +118,7 @@ public class EnemyBehaviour : MonoBehaviour
 
             if(running)
             {
-                anim.SetTrigger("run");
+                //anim.SetTrigger("run");
                 movSpeed = walkspeed;
                 running = false;
 

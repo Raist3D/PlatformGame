@@ -60,15 +60,16 @@ public class MeleeAttack : MonoBehaviour
     {
         if(weaponTrigger.tag == "Enemy" && canDealDamage)
         {
-            enemyHealth doDamage = weaponTrigger.GetComponent<enemyHealth>();
+            //enemyHealth doDamage = weaponTrigger.GetComponent<enemyHealth>();
             //doDamage.AddDamage(damage);
-            doDamage.DamageFX(transform.position, transform.localEulerAngles);
+            //doDamage.DamageFX(transform.position, transform.localEulerAngles);
             canDealDamage = false;
             DamageEnemy(weaponTrigger.gameObject);
 
         }
         if(weaponTrigger.tag == "Interactuable" && canDealDamage)
         {
+            Debug.Log("tete");
             DestroyItems doDamage = weaponTrigger.GetComponent<DestroyItems>();
             doDamage.AddDamage(damage);
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);

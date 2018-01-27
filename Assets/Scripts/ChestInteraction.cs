@@ -7,6 +7,7 @@ public class ChestInteraction : MonoBehaviour
 
     public bool drop;
     public GameObject dropItem;
+    public bool playerNear;
 
     Animator anim;
 
@@ -14,23 +15,32 @@ public class ChestInteraction : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
+        playerNear = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if(playerNear && Input.GetButtonDown("Interact"))
+        {
+            Destroy(gameObject);
+        }
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(BoxCollider other)
     {
-        if(other.tag == "Player" && Input.GetButtonDown("Interact"))
+        if(other.tag == "Player")
         {
-            Destroy(this.gameObject);
-            if(drop) Instantiate(dropItem, transform.position, transform.rotation);
-            anim.SetTrigger("openChest");
+            playerNear = true;
         }
 
+    }
+
+    void OnTriggerExit(BoxCollider other)
+    {
+        if(other.tag == "Player")
+        {
+            playerNear = false;
+        }
     }
 }
