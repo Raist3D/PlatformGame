@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 4708247153556258}
   - component: {fileID: 95913449149854000}
   m_Layer: 0
-  m_Name: Idle_TEST
+  m_Name: MESH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 82627781688465978}
   - component: {fileID: 114940257607099260}
   m_Layer: 8
-  m_Name: Player_finalTEST
+  m_Name: Player 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,7 +668,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702429760544564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2, y: -1.5, z: -0.17846012}
+  m_LocalPosition: {x: 130.96898, y: -4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4314054666194982}
