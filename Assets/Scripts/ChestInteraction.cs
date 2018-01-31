@@ -23,11 +23,12 @@ public class ChestInteraction : MonoBehaviour
     {
 		if(playerNear && Input.GetButtonDown("Interact"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            Debug.Log("Destroy chest");
         }
 	}
 
-    void OnTriggerEnter(BoxCollider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
@@ -36,7 +37,7 @@ public class ChestInteraction : MonoBehaviour
 
     }
 
-    void OnTriggerExit(BoxCollider other)
+    void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player")
         {

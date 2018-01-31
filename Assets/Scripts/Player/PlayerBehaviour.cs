@@ -22,7 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float dashSpeed;
     private float currentDashTime;
 
-    [Header("Weapon Skill Charge")]
+  /*  [Header("Weapon Skill Charge")]
     private bool canCharge;
     private bool isCharging;
     private float timeCharge;
@@ -32,7 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float chargeDamage;
     public Vector2 directionForce;
     public BoxCollider chargeTrigger;
-
+    */
     [Header("Graphics")]
     public Animator anim;
     public bool facingRight;
@@ -78,10 +78,10 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        chargeTrigger = gameObject.GetComponentInChildren<BoxCollider>();
+        //chargeTrigger = gameObject.GetComponentInChildren<BoxCollider>();
         facingRight = true;
         canDash = true;
-        canCharge = true;
+       // canCharge = true;
         gravity = true;
         canThrowPotion = true;
         
@@ -95,11 +95,12 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (isGrounded)
         {
-            canCharge = true;
+            //canCharge = true;
             jump = false;
             doubleJump = false;
         }
 
+        //Potion Throw
         if (!stunDamaged && Input.GetButtonDown("Fire2"))
         {
             if(!canThrowPotion && Time.time > timePotionThrow)
@@ -107,14 +108,13 @@ public class PlayerBehaviour : MonoBehaviour
 
             if(canThrowPotion)
             {
-                Debug.Log("tuloko");
                 GameObject poti = Instantiate(potion);
                 poti.transform.position = this.transform.position + potionPosition;
 
                 if(facingRight)
-                    poti.GetComponent<Rigidbody>().velocity = new Vector3(12, 2, 0);
+                    poti.GetComponent<Rigidbody>().velocity = new Vector3(20, 25, 0);
                 else
-                    poti.GetComponent<Rigidbody>().velocity = new Vector3(-12, 2, 0);
+                    poti.GetComponent<Rigidbody>().velocity = new Vector3(-20, 25, 0);
 
                 canThrowPotion = false;
                 timePotionThrow = Time.time + 1;
@@ -192,7 +192,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
 
-        bool charge = Input.GetButtonDown("Fire3");
+        /*bool charge = Input.GetButtonDown("Fire3");
         if(charge)
         {
             if(charge && canCharge && isGrounded)
@@ -222,7 +222,7 @@ public class PlayerBehaviour : MonoBehaviour
                 }
 
             }
-        }
+        }*/
 
         bool dash = Input.GetButtonDown("Dash");
 
@@ -257,7 +257,7 @@ public class PlayerBehaviour : MonoBehaviour
         //MOVE PLAYER
         //if (isGrounded) //NO MOVERSE EN EL AIRE
         //{
-        if(!isDashing && !isTouchingWall && !stunDamaged && !isCharging)
+        if(!isDashing && !isTouchingWall && !stunDamaged) //&& !isCharging
             rb.velocity = new Vector3(axis, rb.velocity.y, 0);
             //rb.AddForce(axis, 0, 0); MODO HIELO 
         //}
@@ -277,7 +277,7 @@ public class PlayerBehaviour : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    void OnTriggerEnter(Collider chargeTrigger)
+    /*void OnTriggerEnter(Collider chargeTrigger)
     {
         if(chargeTrigger.tag == "Enemy" && isCharging)
         {
@@ -301,7 +301,7 @@ public class PlayerBehaviour : MonoBehaviour
         rb.velocity = Vector3.zero;
 
         rb.AddForce(dir, ForceMode.Impulse);
-    }
+    }*/
 
 
 

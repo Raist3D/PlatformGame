@@ -69,7 +69,7 @@ public class MeleeAttack : MonoBehaviour
         }
         if(weaponTrigger.tag == "Interactuable" && canDealDamage)
         {
-            Debug.Log("tete");
+            Debug.Log("Destroy interactuable");
             DestroyItems doDamage = weaponTrigger.GetComponent<DestroyItems>();
             doDamage.AddDamage(damage);
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Destroy
   - Interactuable
+  - Chest
   layers:
   - Default
   - TransparentFX

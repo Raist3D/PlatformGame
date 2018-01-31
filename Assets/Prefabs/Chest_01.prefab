@@ -22,11 +22,13 @@ GameObject:
   - component: {fileID: 33429807732071626}
   - component: {fileID: 23119159010937632}
   - component: {fileID: 95238855020938618}
+  - component: {fileID: 114096238112728346}
   - component: {fileID: 114012590750960010}
   - component: {fileID: 65349027567628642}
+  - component: {fileID: 65113497824194514}
   m_Layer: 9
   m_Name: Chest_01
-  m_TagString: Interactuable
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902324050197874}
   m_LocalRotation: {x: -0.2173819, y: 0.6728634, z: 0.6728634, w: 0.21738183}
-  m_LocalPosition: {x: 222.179, y: 22.514, z: -0.994}
-  m_LocalScale: {x: 3.048418, y: 3.157408, z: 3.1037955}
+  m_LocalPosition: {x: 355.6, y: -4.692, z: -0.68}
+  m_LocalScale: {x: 3.846159, y: 3.9836705, z: 3.9160283}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -85,6 +87,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902324050197874}
   m_Mesh: {fileID: 4300000, guid: ae983efadc0b1534d9886c64c59dfce3, type: 3}
+--- !u!65 &65113497824194514
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902324050197874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.47, y: 2.56, z: 0.44777772}
+  m_Center: {x: 0.0000038146973, y: 0.000000007450588, z: -0.00000002980233}
 --- !u!65 &65349027567628642
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -120,7 +134,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902324050197874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d533f499dc148044b8e6c482e615a837, type: 3}
   m_Name: 
@@ -130,3 +144,17 @@ MonoBehaviour:
   damageModifier: 1
   drop: 1
   dropItem: {fileID: 1049604250189572, guid: e9733612d2d79a64992cdaa8ed16415e, type: 2}
+--- !u!114 &114096238112728346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902324050197874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0738ef2457ae241a644c46a3785f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: 1
+  dropItem: {fileID: 1049604250189572, guid: e9733612d2d79a64992cdaa8ed16415e, type: 2}
+  playerNear: 0

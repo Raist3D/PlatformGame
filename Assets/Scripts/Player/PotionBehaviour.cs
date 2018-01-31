@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class PotionBehaviour : MonoBehaviour
 {
+    public Rigidbody rb;
+
     public int potionDamage;
     public int timeExplode;
     public CapsuleCollider radiusDamage;
+
+    public bool gravity;
+
 
     // Use this for initialization
     void Start ()
     {
         timeExplode = -1;
         radiusDamage.enabled = false;
+        gravity = true;
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
         if(timeExplode>0)
         {
@@ -29,6 +36,13 @@ public class PotionBehaviour : MonoBehaviour
         }
            
 	}
+
+    void FixedUpdate()
+    {
+        rb.AddForce(0, -49, 0);
+
+    }
+
 
     void OnTriggerEnter(Collider potionTrigger)
     {
