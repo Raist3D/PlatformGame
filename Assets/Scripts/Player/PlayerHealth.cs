@@ -9,7 +9,6 @@ public class PlayerHealth : MonoBehaviour
 
     public float fullHealth;
     public float currentHealth;
-    public bool isImmune;
 
     public float pushBackForce;
 
@@ -21,7 +20,6 @@ public class PlayerHealth : MonoBehaviour
     void Start ()
     {
         currentHealth = fullHealth;
-        isImmune = false;
 	}
 	
 	// Update is called once per frame

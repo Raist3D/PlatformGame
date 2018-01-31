@@ -17,7 +17,7 @@ public class autoShoot : MonoBehaviour
         if((projectile != null) && (shotPos != null))
         {
             shotRigid = Instantiate(projectile, shotPos.position, shotPos.rotation) as Rigidbody;
-            Instantiate(effect, shotPos.position, shotPos.rotation);
+           // Instantiate(effect, shotPos.position, shotPos.rotation);
             if(shotRigid != null)
             {
                 shotRigid.AddForce(shotPos.forward * forceAmount);

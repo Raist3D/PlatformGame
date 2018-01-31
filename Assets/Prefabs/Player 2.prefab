@@ -668,7 +668,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702429760544564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.96898, y: -4.99, z: 0}
+  m_LocalPosition: {x: 130.9535, y: -4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4314054666194982}
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   rb: {fileID: 54249469885444046}
   speedWalk: 8
   dashSpeed: 15
-  anim: {fileID: 0}
+  anim: {fileID: 95913449149854000}
   facingRight: 0
   meshTransform: {fileID: 4708247153556258}
   groundChecker: {fileID: 4301428301856428}
