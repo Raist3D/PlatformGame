@@ -39,7 +39,7 @@ public class bossEnemySpawn : MonoBehaviour
 
     private void SetEnemyPosition()
     {
-        enemyPosition = new Vector3(((int)(Random.Range(transform.position.x - 20f, transform.position.x - 5))), 2.5f, 0);
+        enemyPosition = new Vector3(((int)(Random.Range(transform.position.x - 20f, transform.position.x - 5))), 1.5f, 0);
     }
 
     private bool generateEnemy()

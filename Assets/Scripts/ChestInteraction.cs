@@ -7,6 +7,7 @@ public class ChestInteraction : MonoBehaviour
 
     public bool drop;
     public GameObject dropItem;
+    public GameObject checker;
     public bool playerNear;
 
     Animator anim;
@@ -21,11 +22,16 @@ public class ChestInteraction : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(playerNear && Input.GetButtonDown("Interact"))
+		if(checker.GetComponent<CercanyChecker>().detected)
         {
-            //Destroy(gameObject);
-            Debug.Log("Destroy chest");
+            
+
+            if (Input.GetButtonDown("Interact"))
+            {
+                Destroy(gameObject);
+            }
         }
+
 	}
 
     void OnTriggerEnter(Collider other)
