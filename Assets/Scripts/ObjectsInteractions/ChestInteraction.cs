@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ChestInteraction : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class ChestInteraction : MonoBehaviour
     public GameObject dropItem;
     public GameObject checker;
     public bool playerNear;
+    public Image interactionButton;
 
     Animator anim;
 
@@ -24,15 +27,20 @@ public class ChestInteraction : MonoBehaviour
     {
 		if(checker.GetComponent<CercanyChecker>().detected)
         {
-            
+            interactionButton.gameObject.SetActive(true);
 
-            if (Input.GetButtonDown("Interact"))
+            if(Input.GetButtonDown("Interact"))
             {
                 Destroy(gameObject);
+                if(drop) Instantiate(dropItem, transform.localPosition, transform.localRotation);
             }
         }
+        else
+        {
+            interactionButton.gameObject.SetActive(false);
+        }
 
-	}
+    }
 
     void OnTriggerEnter(Collider other)
     {
