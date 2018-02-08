@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElasticScaleEasing : MonoBehaviour
+public class BouncePosEasing : MonoBehaviour
 {
     public Vector3 iniValue;
     public Vector3 finalValue;
@@ -10,10 +10,12 @@ public class ElasticScaleEasing : MonoBehaviour
     public float timeDuration;
     public float startDelay;
 
+    public float screenWidth = Screen.width;
+    public float screenHeight = Screen.height;
     private Vector3 deltaValue;
 
-    // Use this for initialization
 
+    // Use this for initialization
     private void Start()
     {
         deltaValue = finalValue - iniValue;
@@ -35,18 +37,18 @@ public class ElasticScaleEasing : MonoBehaviour
             //Vector3 easingValue = iniValue;
             //easingValue.x = Easing.BounceEaseInOut(currentTime, iniValue.x, deltaValue.x, timeDuration);
 
-            Vector3 easingValue = new Vector3(easingValue.x = Easing.ElasticEaseOut(currentTime, iniValue.x, deltaValue.x, timeDuration),
-                                               easingValue.y = Easing.ElasticEaseOut(currentTime, iniValue.y, deltaValue.y, timeDuration),
-                                               easingValue.z = Easing.ElasticEaseOut(currentTime, iniValue.z, deltaValue.z, timeDuration));
+            Vector3 easingValue = new Vector3(easingValue.x = Easing.BounceEaseOut(currentTime, screenWidth / 2, screenWidth / 2 - screenWidth / 2, timeDuration),
+                                               easingValue.y = Easing.BounceEaseOut(currentTime, screenHeight + 200, (screenHeight - 300) - (screenHeight + 200), timeDuration),
+                                               easingValue.z = Easing.BounceEaseOut(currentTime, iniValue.z, deltaValue.z, timeDuration));
 
-            transform.localScale = easingValue;
+            transform.position = easingValue;
 
             currentTime += Time.deltaTime;
 
-           /* if(currentTime >= timeDuration)
+            /*if(currentTime >= timeDuration)
             {
                 Debug.Log("Easing a terminado justo ahora!");
-                transform.localScale = finalValue;
+                transform.position = finalValue;
 
                 currentTime = 0;
                 Vector3 ini = iniValue;
@@ -58,8 +60,7 @@ public class ElasticScaleEasing : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Easing finished!");
-
+            Debug.Log("Easing finished!");
         }
     }
 }
