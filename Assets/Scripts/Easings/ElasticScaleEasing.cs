@@ -8,12 +8,11 @@ public class ElasticScaleEasing : MonoBehaviour
     public Vector3 finalValue;
     public float currentTime;
     public float timeDuration;
-    public float startDelay;
 
     private Vector3 deltaValue;
 
-    // Use this for initialization
 
+    // Use this for initialization
     private void Start()
     {
         deltaValue = finalValue - iniValue;
@@ -22,14 +21,8 @@ public class ElasticScaleEasing : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (startDelay > 0) //Cuenta atras
-        {
-            startDelay -= Time.deltaTime;
-            return;
-        }
-
         //EASING
-        if (currentTime <= timeDuration)
+        if(currentTime <= timeDuration)
         {
             //DO EASING EJE X
             //Vector3 easingValue = iniValue;
@@ -58,8 +51,7 @@ public class ElasticScaleEasing : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Easing finished!");
-
+            Debug.Log("Easing finished!");
         }
     }
 }
