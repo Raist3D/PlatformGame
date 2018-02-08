@@ -1135,7 +1135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHealth: 3
   currentHealth: 0
-  isImmune: 0
   pushBackForce: 0
   rb: {fileID: 54679956704728976}
   playerBh: {fileID: 114359077775760530}

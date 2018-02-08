@@ -16,7 +16,7 @@ public class CameraBehaviour : MonoBehaviour
         if (player.facingRight) offset.x = Mathf.Abs(offset.x);
         else offset.x = -Mathf.Abs(offset.x);
 
-        Vector3 newPosition = new Vector3(targetTransform.position.x + offset.x, targetTransform.position.y + offset.y, targetTransform.position.z + transform.position.z);
+        Vector3 newPosition = new Vector3(targetTransform.position.x + offset.x, targetTransform.position.y + offset.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref currentVelocity, smoothTime);
     }
 }
