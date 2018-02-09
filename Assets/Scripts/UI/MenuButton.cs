@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuButton : MonoBehaviour
 {
 
-    public GameObject gameTitle;
+    /*public GameObject gameTitle;
     public GameObject playButton;
     public GameObject optionsButton;
     public GameObject exitButton;
@@ -51,7 +51,7 @@ public class MenuButton : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
 
     public void QuitGame()

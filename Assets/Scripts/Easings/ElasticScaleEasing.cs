@@ -17,6 +17,7 @@ public class ElasticScaleEasing : MonoBehaviour
     private void Start()
     {
         deltaValue = finalValue - iniValue;
+        GetComponent<Animator>().enabled = false;
     }
 
     // Update is called once per frame
@@ -59,6 +60,8 @@ public class ElasticScaleEasing : MonoBehaviour
         else
         {
             //Debug.Log("Easing finished!");
+            GetComponent<Animator>().enabled = true;
+
 
         }
     }
