@@ -781,7 +781,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1846219280390962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.96405, y: -4.99, z: -0.43556595}
+  m_LocalPosition: {x: 103.9, y: -0.6, z: 0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4485657901923376}
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   jumpForce: 35
   rb: {fileID: 54270912595295350}
   speedWalk: 8
-  dashSpeed: 15
+  dashSpeed: 20
   anim: {fileID: 95801583537850008}
   facingRight: 0
   meshTransform: {fileID: 4485657901923376}
@@ -1298,10 +1298,10 @@ MonoBehaviour:
   damage: 8
   knockBack: 0.5
   halfSize: {x: 0, y: 0, z: 0}
-  directionForce: {x: 1.5, y: 3}
+  directionForce: {x: 2, y: 3}
   attackRate: 0.3
   nextMelee: 1
-  anim: {fileID: 0}
+  anim: {fileID: 95801583537850008}
 --- !u!114 &114774553773596940
 MonoBehaviour:
   m_ObjectHideFlags: 1

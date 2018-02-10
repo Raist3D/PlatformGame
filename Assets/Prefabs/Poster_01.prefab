@@ -133,7 +133,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7239207, y: 2.24, z: 1.7}
+  m_Size: {x: 1.7239207, y: 3.94, z: 1.7}
   m_Center: {x: -7.877549e-15, y: -0.00000002980233, z: 0.78}
 --- !u!95 &95073563071417968
 Animator:
@@ -297,7 +297,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641625543770926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.099998474, y: 2.3099995, z: 0}
+  m_LocalPosition: {x: 0.1800003, y: 2.3099995, z: 0}
   m_LocalScale: {x: 0.019742915, y: 0.019742925, z: 0.019742925}
   m_Children: []
   m_Father: {fileID: 224174296246062404}
@@ -305,7 +305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1, y: 2.31}
+  m_AnchoredPosition: {x: 0.18, y: 2.31}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224174296246062404
