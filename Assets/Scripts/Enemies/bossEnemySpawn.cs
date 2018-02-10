@@ -8,8 +8,6 @@ public class bossEnemySpawn : MonoBehaviour
 
     private Vector3 enemyPosition;
 
-    public int frameCounter;
-
     public float spawnRatio;
     public float nextEnemy;
 
@@ -20,7 +18,7 @@ public class bossEnemySpawn : MonoBehaviour
 
     void Start()
     {
-        frameCounter = 0;
+
     }
 
     void Update()
@@ -32,8 +30,6 @@ public class bossEnemySpawn : MonoBehaviour
             SetEnemyPosition();
             enemy.transform.position = enemyPosition;
         }
-
-        frameCounter++;
 
     }
 

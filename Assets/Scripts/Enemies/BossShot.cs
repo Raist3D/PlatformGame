@@ -4,56 +4,32 @@ using UnityEngine;
 
 public class BossShot : MonoBehaviour
 {
-    public float maxRot;
-    public float minRot;
-    public Transform tr;
-    public float randSpeed;
-    private float endRot;
-    public bool isRotating;
-    private float previousRot;
-    private float nextRot;
-
+    public float shotRatio;
+    public GameObject fireBall;
+    public float nextShot;
+    public Transform playerTransform;
+    private float distX;
+    private float distY;
 
     // Use this for initialization
     void Start ()
     {
-        isRotating = false;
+        nextShot = Time.time + shotRatio;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (!isRotating)
+        if(Time.time > nextShot)
         {
-            previousRot = tr.transform.rotation.z;
-            nextRot = Random.Range(minRot, maxRot);
-
-
-            isRotating = true;
-
-            endRot = Time.time + randSpeed;
+            GameObject shot = Instantiate(fireBall);
+            shot.transform.position = new Vector3(transform.position.x - 3, transform.position.y + 3, 0);
+            //distX = transform.position.x - playerTransform.position.x;
+            //distY = transform.position.y - playerTransform.position.y;
+            shot.GetComponent<Rigidbody>().velocity = new Vector3 (-3, 0, 0);
+            nextShot = Time.time + shotRatio;
         }
 
-        else
-        {
-            if (Time.time <= endRot)
-                tr.transform.rotation = new Quaternion(0, 0, 1, previousRot + (Time.time / endRot) * nextRot);
-
-            else
-            {
-                tr.transform.rotation = new Quaternion(0, 0, 1, previousRot + nextRot);
-
-                isRotating = false;
-            }
-
-            if(tr.transform.rotation.z > maxRot)
-                tr.transform.rotation = new Quaternion(0, 0, 1, maxRot);
-
-            if(tr.transform.rotation.z < minRot)
-                tr.transform.rotation = new Quaternion(0, 0, 1, minRot);
-
-
-        }
 
     }
 }
