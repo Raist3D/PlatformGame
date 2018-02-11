@@ -37,6 +37,8 @@ public class PlayerBehaviour : MonoBehaviour
     public Animator anim;
     public bool facingRight;
     public Transform meshTransform;
+    public SkinnedMeshRenderer meshRenderer;
+    public MeshRenderer swordRenderer;
 
     [Header("GroundChecker")]
     public Transform groundChecker;
@@ -187,8 +189,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(immune)
         {
+            meshRenderer.enabled = !meshRenderer.enabled;
+            swordRenderer.enabled = !swordRenderer.enabled;
+
             if(stunFinish + immuneTime < Time.time)
+            {
                 immune = false;
+
+                meshRenderer.enabled = true;
+                swordRenderer.enabled = true;
+            }
+
         }
 
 

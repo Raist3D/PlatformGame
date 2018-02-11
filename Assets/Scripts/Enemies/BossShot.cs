@@ -23,10 +23,10 @@ public class BossShot : MonoBehaviour
         if(Time.time > nextShot)
         {
             GameObject shot = Instantiate(fireBall);
-            shot.transform.position = new Vector3(transform.position.x - 3, transform.position.y + 3, 0);
-            //distX = transform.position.x - playerTransform.position.x;
-            //distY = transform.position.y - playerTransform.position.y;
-            shot.GetComponent<Rigidbody>().velocity = new Vector3 (-3, 0, 0);
+            shot.transform.position = new Vector3(transform.position.x - 3, transform.position.y + 3, 1);
+            distX = transform.position.x - playerTransform.position.x;
+            distY = (transform.position.y - playerTransform.position.y) + 1;
+            shot.GetComponent<Rigidbody>().velocity = new Vector3 (-15, -15 * (distY / distX), 0);
             nextShot = Time.time + shotRatio;
         }
 
