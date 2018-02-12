@@ -147,6 +147,7 @@ public class PlayerBehaviour : MonoBehaviour
                     doubleJump = true;
                     jump = true;
                     anim.SetTrigger("doubleJump");
+
                 }
             }
         }

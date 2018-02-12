@@ -781,7 +781,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1846219280390962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 333.6, y: -2.3, z: 0.99}
+  m_LocalPosition: {x: 362.2, y: -3.5, z: 0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4485657901923376}
@@ -1254,6 +1254,8 @@ MonoBehaviour:
   anim: {fileID: 95801583537850008}
   facingRight: 0
   meshTransform: {fileID: 4485657901923376}
+  meshRenderer: {fileID: 137168424068511456}
+  swordRenderer: {fileID: 23834957587924540}
   groundChecker: {fileID: 4627773036689408}
   halfSize: {x: 0.21, y: 0.08, z: 0.38}
   groundMask:
