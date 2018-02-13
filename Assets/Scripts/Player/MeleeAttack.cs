@@ -24,7 +24,7 @@ public class MeleeAttack : MonoBehaviour
 
     PlayerBehaviour playerBh;
     BoxCollider weaponTrigger;
-
+    public ParticleSystem meleeSplashPS;
 
     // Use this for initialization
     void Start ()
@@ -65,6 +65,7 @@ public class MeleeAttack : MonoBehaviour
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);
             canDealDamage = false;
             DamageEnemy(weaponTrigger.gameObject);
+            meleeSplashPS.Play();
 
         }
         if(weaponTrigger.tag == "Interactuable" && canDealDamage)
@@ -74,6 +75,7 @@ public class MeleeAttack : MonoBehaviour
             doDamage.AddDamage(damage);
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);
             canDealDamage = false;
+            meleeSplashPS.Play();
 
         }
 

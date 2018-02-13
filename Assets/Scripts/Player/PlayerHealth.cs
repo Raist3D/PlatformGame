@@ -15,15 +15,17 @@ public class PlayerHealth : MonoBehaviour
     public Rigidbody rb;
 
     public PlayerBehaviour playerBh;
+    public ParticleSystem brokenHearthPS;
 
     // Use this for initialization
     void Start ()
     {
         currentHealth = fullHealth;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 
 		
@@ -36,6 +38,8 @@ public class PlayerHealth : MonoBehaviour
             playerBh.Stun(knock);
 
             currentHealth -= damage;
+
+            brokenHearthPS.Play();
 
             if(currentHealth <= 0)
             {

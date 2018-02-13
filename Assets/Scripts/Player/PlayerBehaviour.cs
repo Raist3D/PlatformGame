@@ -39,6 +39,9 @@ public class PlayerBehaviour : MonoBehaviour
     public Transform meshTransform;
     public SkinnedMeshRenderer meshRenderer;
     public MeshRenderer swordRenderer;
+    public ParticleSystem jumpCloudsPS;
+    public ParticleSystem dashCloudsPS;
+
 
     [Header("GroundChecker")]
     public Transform groundChecker;
@@ -114,9 +117,9 @@ public class PlayerBehaviour : MonoBehaviour
                 poti.transform.position = this.transform.position + potionPosition;
 
                 if(facingRight)
-                    poti.GetComponent<Rigidbody>().velocity = new Vector3(20, 25, 0);
+                    poti.GetComponent<Rigidbody>().velocity = new Vector3(16, 25, 0);
                 else
-                    poti.GetComponent<Rigidbody>().velocity = new Vector3(-20, 25, 0);
+                    poti.GetComponent<Rigidbody>().velocity = new Vector3(-16, 25, 0);
 
                 canThrowPotion = false;
                 timePotionThrow = Time.time + 1;
@@ -125,7 +128,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(Input.GetButtonDown("Jump"))
         {
-            if (isGrounded)
+
+            if(isGrounded)
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0, 0);
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
@@ -135,7 +139,6 @@ public class PlayerBehaviour : MonoBehaviour
                 if (!jump) jump = true;
             }
 
-
             else
             {
                 if (!doubleJump)
@@ -143,6 +146,8 @@ public class PlayerBehaviour : MonoBehaviour
                     rb.velocity = new Vector3(rb.velocity.x, 0, 0);
                     rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                     jumpFx.Play();
+                    jumpCloudsPS.Play();
+
 
                     doubleJump = true;
                     jump = true;
@@ -240,7 +245,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(dash && !isGrounded && canDash)
         {
-            if (facingRight)
+            dashCloudsPS.Play();
+
+            if(facingRight)
                 rb.velocity = new Vector3(rb.velocity.x + dashSpeed, 0, 0);
                 //rb.transform.position = new Vector3(rb.position.x + 1, rb.position.y, 0);
             else
