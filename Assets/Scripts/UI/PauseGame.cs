@@ -32,4 +32,12 @@ public class PauseGame : MonoBehaviour
             pauseMenu.gameObject.SetActive(false);
         }
     }
+
+    public void ResumeGame()
+    {
+            Time.timeScale = 1;
+            pauseMenu.gameObject.SetActive(false);
+    }
+
+
 }
