@@ -6,21 +6,30 @@ public class PauseGame : MonoBehaviour
 {
 
     bool pause;
-
+    public Canvas pauseMenu;
 
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        //pauseMenu.gameObject.SetActive(false);
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if(Input.GetButtonDown("Cancel")) pause = !pause; 
+        if(Input.GetButtonDown("Cancel")) pause = !pause;
 
-        if(pause)  Time.timeScale = 0; 
+        if(pause)
+        {
+            Time.timeScale = 0;
+            pauseMenu.gameObject.SetActive(true);
+        }
 
-        if(!pause)  Time.timeScale = 1; 
+        if(!pause)  
+        {
+            Time.timeScale = 1;
+            pauseMenu.gameObject.SetActive(false);
+        }
     }
 }
