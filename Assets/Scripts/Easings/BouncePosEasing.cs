@@ -60,7 +60,7 @@ public class BouncePosEasing : MonoBehaviour
         }
         else
         {
-            Debug.Log("Easing finished!");
+           // Debug.Log("Easing finished!");
         }
     }
 }
