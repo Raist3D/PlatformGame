@@ -15,6 +15,8 @@ public class bossEnemySpawn : MonoBehaviour
 
     public BoxCollider trigger;
 
+    public AudioSource bossQuote;
+
 
     void Start()
     {
@@ -23,7 +25,6 @@ public class bossEnemySpawn : MonoBehaviour
 
     void Update()
     {
-
         if(generateEnemy() && isActive)
         {
             GameObject enemy = Instantiate(enemyPrefab);
@@ -53,6 +54,8 @@ public class bossEnemySpawn : MonoBehaviour
         if(other.tag == "Player")
         {
             isActive = true;
+            bossQuote.Play();
+
         }
 
     }

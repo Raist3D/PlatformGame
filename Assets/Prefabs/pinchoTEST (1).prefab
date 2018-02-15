@@ -95,5 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  damageRate: 1
-  pushBackForce: 50
+  directionForce: {x: 0, y: 0}
+  distanceFromPlayer: 0
+  rangeDetection: 0
+  stunTime: 0

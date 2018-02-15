@@ -27,9 +27,6 @@ public class CoinFx : MonoBehaviour
         if(other.tag == "Player")
         {
             var effect = Instantiate(Fx, transform.position, transform.rotation);
-            AudioSource sound = Instantiate(coinFx, transform.position, transform.rotation);
-
-            Destroy(sound.gameObject, 2);
 
             Destroy(effect.gameObject, 2);
             Destroy(gameObject);
