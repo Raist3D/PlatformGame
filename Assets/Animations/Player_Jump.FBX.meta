@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5740582e44a09c740b708806a6ea7043
-timeCreated: 1518627768
+guid: bf39abc9be9810d4eb4ac6e8e9c43d7c
+timeCreated: 1518637390
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -66,7 +66,7 @@ ModelImporter:
     400056: //RootNode
     400058: Player_skin
     4300000: Player_skin
-    7400000: Take 001
+    7400000: Player_Jump
     9500000: //RootNode
     13700000: Player_skin
   externalObjects:
@@ -100,11 +100,39 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Player_Jump
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 2.7
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

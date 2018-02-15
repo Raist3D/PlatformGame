@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyDamage : MonoBehaviour
 {
 
-    public float damage;
+    public int damage;
     //public float damageRate;
     public Vector2 directionForce;
 

@@ -9,7 +9,7 @@ public class TutorialMesages : MonoBehaviour
 
     public GameObject checker;
     public bool playerNear;
-    public Text tutorialMessage;
+    public Image tutorialMessage;
 
     Animator anim;
 

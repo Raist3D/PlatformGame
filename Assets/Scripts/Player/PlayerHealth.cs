@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public float fullHealth;
-    public float currentHealth;
+    public int fullHealth;
+    public int currentHealth;
 
     public float pushBackForce;
 
@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
 		
 	}
 
-    public void AddDamage (float damage, Vector3 knock)// float pos)
+    public void AddDamage (int damage, Vector3 knock)// float pos)
     {
         if(!playerBh.immune)
         {

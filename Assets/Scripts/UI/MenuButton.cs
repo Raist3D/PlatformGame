@@ -61,11 +61,13 @@ public class MenuButton : MonoBehaviour
 
     public void LoadScene(int buildIndex)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(buildIndex);
     }
 
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
 }

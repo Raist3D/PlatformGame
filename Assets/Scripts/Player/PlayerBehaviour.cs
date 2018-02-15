@@ -74,6 +74,9 @@ public class PlayerBehaviour : MonoBehaviour
     public float potionThrowRatio;
     public float timePotionThrow;
     public Vector3 potionPosition;
+    public UIpotionAmmo currentPotion;
+    public int addAmount;
+
 
     public GameObject potion;
 
@@ -89,7 +92,8 @@ public class PlayerBehaviour : MonoBehaviour
        // canCharge = true;
         gravity = true;
         canThrowPotion = true;
-        
+
+
         // anim = GetComponent<Animator>();
     }
 
@@ -106,13 +110,15 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Potion Throw
-        if (!stunDamaged && Input.GetButtonDown("Fire2"))
+        if (!stunDamaged && Input.GetButtonDown("Fire2") && potionAmmo > 0)
         {
             if(!canThrowPotion && Time.time > timePotionThrow)
                 canThrowPotion = true;
 
             if(canThrowPotion)
             {
+                potionAmmo--;
+                currentPotion.potionAmmo -= addAmount;
                 GameObject poti = Instantiate(potion);
                 poti.transform.position = this.transform.position + potionPosition;
 
