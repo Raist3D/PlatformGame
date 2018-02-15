@@ -6,9 +6,12 @@ public class CoinFx : MonoBehaviour
 {
 
     public Transform Fx;
+    public AudioSource coinFx;
 
-	// Use this for initialization
-	void Start ()
+
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -24,6 +27,9 @@ public class CoinFx : MonoBehaviour
         if(other.tag == "Player")
         {
             var effect = Instantiate(Fx, transform.position, transform.rotation);
+            AudioSource sound = Instantiate(coinFx, transform.position, transform.rotation);
+
+            Destroy(sound.gameObject, 2);
 
             Destroy(effect.gameObject, 2);
             Destroy(gameObject);

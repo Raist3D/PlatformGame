@@ -19,7 +19,7 @@ public class PickUpLoot : MonoBehaviour
         if(obj.gameObject.tag == "Player")
         {
             currentGold.gold += addAmount;
-            Destroy(gameObject);
+            Destroy(gameObject, 2);
         }
     }
 }

@@ -25,6 +25,7 @@ public class MeleeAttack : MonoBehaviour
     PlayerBehaviour playerBh;
     BoxCollider weaponTrigger;
     public ParticleSystem meleeSplashPS;
+    public AudioSource swordDash;
 
     // Use this for initialization
     void Start ()
@@ -51,6 +52,7 @@ public class MeleeAttack : MonoBehaviour
             {
                 nextMelee = Time.time + attackRate;
                 anim.SetTrigger("meleeAttack");
+                swordDash.Play();
                 canDealDamage = true;
             }
         }
@@ -66,8 +68,8 @@ public class MeleeAttack : MonoBehaviour
             canDealDamage = false;
             DamageEnemy(weaponTrigger.gameObject);
             meleeSplashPS.Play();
-
         }
+
         if(weaponTrigger.tag == "Interactuable" && canDealDamage)
         {
             Debug.Log("Destroy interactuable");
@@ -76,7 +78,6 @@ public class MeleeAttack : MonoBehaviour
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);
             canDealDamage = false;
             meleeSplashPS.Play();
-
         }
 
     }
