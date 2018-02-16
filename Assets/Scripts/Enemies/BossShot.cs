@@ -14,7 +14,9 @@ public class BossShot : MonoBehaviour
     public bool isActive;
     public BoxCollider trigger;
 
+    public AudioSource bossAS;
 
+    public AudioClip fireballCastFx;
 
     // Use this for initialization
     void Start ()
@@ -29,6 +31,8 @@ public class BossShot : MonoBehaviour
         {
             if(Time.time > nextShot)
             {
+                bossAS.PlayOneShot(fireballCastFx);
+
                 GameObject shot = Instantiate(fireBall);
                 shot.transform.position = new Vector3(transform.position.x - 3, transform.position.y + 3, 1);
                 distX = transform.position.x - playerTransform.position.x;

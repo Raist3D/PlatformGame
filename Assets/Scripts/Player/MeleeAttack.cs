@@ -25,7 +25,11 @@ public class MeleeAttack : MonoBehaviour
     PlayerBehaviour playerBh;
     BoxCollider weaponTrigger;
     public ParticleSystem meleeSplashPS;
-    public AudioSource swordDash;
+    public AudioSource swordAS;
+
+    public AudioClip boxDestroyFx;
+    public AudioClip enemyHitFx;
+
 
     // Use this for initialization
     void Start ()
@@ -52,7 +56,7 @@ public class MeleeAttack : MonoBehaviour
             {
                 nextMelee = Time.time + attackRate;
                 anim.SetTrigger("meleeAttack");
-                swordDash.Play();
+                swordAS.Play();
                 canDealDamage = true;
             }
         }
@@ -62,6 +66,8 @@ public class MeleeAttack : MonoBehaviour
     {
         if(weaponTrigger.tag == "Enemy" && canDealDamage)
         {
+            swordAS.PlayOneShot(enemyHitFx);
+
             //enemyHealth doDamage = weaponTrigger.GetComponent<enemyHealth>();
             //doDamage.AddDamage(damage);
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);
@@ -73,6 +79,8 @@ public class MeleeAttack : MonoBehaviour
         if(weaponTrigger.tag == "Interactuable" && canDealDamage)
         {
             Debug.Log("Destroy interactuable");
+            swordAS.PlayOneShot(boxDestroyFx);
+
             DestroyItems doDamage = weaponTrigger.GetComponent<DestroyItems>();
             doDamage.AddDamage(damage);
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);

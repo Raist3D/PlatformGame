@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65039112999650744}
   - component: {fileID: 114322690164957662}
   - component: {fileID: 114714395648585662}
+  - component: {fileID: 82786872492082958}
   m_Layer: 0
   m_Name: Poster_01
   m_TagString: Untagged
@@ -94,7 +95,6 @@ GameObject:
   - component: {fileID: 224115594136044788}
   - component: {fileID: 222119307347762178}
   - component: {fileID: 114259569023121574}
-  - component: {fileID: 114164898950845324}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1285494291457850}
   m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: -15.37, y: 1.63, z: 1.72}
+  m_LocalPosition: {x: 262.2, y: 11.61, z: 3.49}
   m_LocalScale: {x: 1.8736862, y: 2.0772927, z: 2.1673012}
   m_Children:
   - {fileID: 4176397868127226}
@@ -183,6 +183,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7239207, y: 3.94, z: 1.7}
   m_Center: {x: -7.877549e-15, y: -0.00000002980233, z: 0.78}
+--- !u!82 &82786872492082958
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285494291457850}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ee69bda2945da0d48867b0fe9d305418, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95073563071417968
 Animator:
   serializedVersion: 3
@@ -216,22 +296,6 @@ MonoBehaviour:
   currentTime: 0
   timeDuration: 1
   startDelay: 0
---- !u!114 &114164898950845324
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1641625543770926}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f665c848ab4854882d79177a158adb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iniValue: {x: 0, y: 0, z: 0}
-  finalValue: {x: 0.01974292, y: 0.01974292, z: 0.01974292}
-  currentTime: 0
-  timeDuration: 1
-  startDelay: 0
 --- !u!114 &114259569023121574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,7 +317,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: e1b89f3e11151584e81bdb3b48548631, type: 3}
-    m_FontSize: 142
+    m_FontSize: 113
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -264,7 +328,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Press \n[SPACE]\nto jump"
+  m_Text: 'Press [Q]
+
+    to throw
+
+    potion'
 --- !u!114 &114322690164957662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,6 +423,7 @@ MonoBehaviour:
   checker: {fileID: 1285494291457850}
   playerNear: 0
   tutorialMessage: {fileID: 114646964485747202}
+  tutorialFx: {fileID: 82786872492082958}
 --- !u!212 &212711350422731546
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -439,7 +508,7 @@ RectTransform:
   m_GameObject: {fileID: 1641625543770926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.6396713, y: 1.4029522, z: -0}
-  m_LocalScale: {x: 0.112797074, y: 0.12408325, z: 0.12408319}
+  m_LocalScale: {x: 0.11777618, y: 0.12956056, z: 0.1295605}
   m_Children: []
   m_Father: {fileID: 224837821771338952}
   m_RootOrder: 0

@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 33320499614665204}
   - component: {fileID: 23257123757618940}
   - component: {fileID: 95564880200907088}
-  - component: {fileID: 114427193000164668}
   - component: {fileID: 65188933197086616}
   - component: {fileID: 54298945131249528}
   m_Layer: 11
@@ -123,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475369517906418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 223, y: 22.74, z: 0.05}
+  m_LocalPosition: {x: 141.68805, y: -4.25, z: 0.18292046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4335074954157750}
@@ -195,9 +194,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &65102958278988540
 BoxCollider:
@@ -311,26 +310,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drop: 1
-  dropItem: {fileID: 1049604250189572, guid: e9733612d2d79a64992cdaa8ed16415e, type: 2}
+  dropItem: {fileID: 1026732442160464, guid: af6197bb837b9784ca3756a6a37c01e1, type: 2}
   checker: {fileID: 1711249954690588}
   playerNear: 0
   interactionButton: {fileID: 114239999835535716}
---- !u!114 &114427193000164668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043981740262724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0738ef2457ae241a644c46a3785f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drop: 1
-  dropItem: {fileID: 1049604250189572, guid: e39b166150c26734aa91732a1bab1357, type: 2}
-  checker: {fileID: 1711249954690588}
-  playerNear: 0
-  interactionButton: {fileID: 114239999835535716}
+  Fx: {fileID: 4864741951366712, guid: 9b1e00b907b82864db2d9015813594ba, type: 2}
+  chestFx: {fileID: 8300000, guid: ee69bda2945da0d48867b0fe9d305418, type: 3}
 --- !u!114 &114632236946468894
 MonoBehaviour:
   m_ObjectHideFlags: 1

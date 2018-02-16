@@ -13,7 +13,11 @@ public class ChestInteraction : MonoBehaviour
     public bool playerNear;
     public Image interactionButton;
 
+    public Transform Fx;
+
     Animator anim;
+
+    public AudioClip chestFx;
 
 
     // Use this for initialization
@@ -31,8 +35,14 @@ public class ChestInteraction : MonoBehaviour
 
             if(Input.GetButtonDown("Interact"))
             {
+                var effect = Instantiate(Fx, new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
+                Destroy(effect.gameObject, 2);
+
                 Destroy(gameObject);
-                if(drop) Instantiate(dropItem, transform.localPosition, transform.localRotation);
+                if(drop) Instantiate(dropItem, new Vector3(transform.localPosition.x, transform.localPosition.y + 1, transform.localPosition.z), transform.localRotation);
+
+                AudioSource.PlayClipAtPoint(chestFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 31.6f));
+
             }
         }
         else

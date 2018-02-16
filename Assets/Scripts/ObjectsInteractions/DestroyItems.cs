@@ -11,7 +11,8 @@ public class DestroyItems : MonoBehaviour
 
     public bool drop;
     public GameObject dropItem;
-
+    public AudioSource itemAS;
+    public AudioClip itemDestroyFx;
 
 
     MeleeAttack meleeAtk;
@@ -21,7 +22,7 @@ public class DestroyItems : MonoBehaviour
     void Start ()
     {
         meleeAtk = gameObject.GetComponent<MeleeAttack>();
-
+        itemAS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class DestroyItems : MonoBehaviour
 
         if(meleeAtk.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
     public void AddDamage(float damage)
@@ -58,6 +59,7 @@ public class DestroyItems : MonoBehaviour
         //AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
 
         Destroy(gameObject.transform.root.gameObject);
+
 
         if(drop) Instantiate(dropItem, transform.position, transform.rotation);
     }

@@ -17,6 +17,11 @@ public class PlayerHealth : MonoBehaviour
     public PlayerBehaviour playerBh;
     public ParticleSystem brokenHearthPS;
 
+    public AudioSource damagedAS;
+
+    public AudioClip playerDamagedFx;
+
+
     // Use this for initialization
     void Start ()
     {
@@ -39,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
             currentHealth -= damage;
 
+            damagedAS.PlayOneShot(playerDamagedFx);
             brokenHearthPS.Play();
 
             if(currentHealth <= 0)

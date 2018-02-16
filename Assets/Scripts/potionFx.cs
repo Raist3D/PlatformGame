@@ -7,6 +7,8 @@ public class potionFx : MonoBehaviour
 
     public Transform Fx;
 
+
+
     // Use this for initialization
     void Start ()
     {

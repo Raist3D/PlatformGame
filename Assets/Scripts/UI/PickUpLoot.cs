@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class PickUpLoot : MonoBehaviour
 {
 
     Currency currentGold;
+    public AudioClip coinFx;
 
     public int addAmount;
 
@@ -20,6 +23,8 @@ public class PickUpLoot : MonoBehaviour
         {
             currentGold.gold += addAmount;
             Destroy(gameObject, 2);
+            AudioSource.PlayClipAtPoint(coinFx, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 31.6f));
+
         }
     }
 }

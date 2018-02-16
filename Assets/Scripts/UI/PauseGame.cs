@@ -8,6 +8,10 @@ public class PauseGame : MonoBehaviour
     bool pause;
     public Canvas pauseMenu;
 
+    public AudioSource pauseAS;
+
+    public AudioClip pauseFx;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -22,12 +26,14 @@ public class PauseGame : MonoBehaviour
 
         if(pause)
         {
+
             Time.timeScale = 0;
             pauseMenu.gameObject.SetActive(true);
         }
 
         if(!pause )  
         {
+
             Time.timeScale = 1;
             pauseMenu.gameObject.SetActive(false);
         }

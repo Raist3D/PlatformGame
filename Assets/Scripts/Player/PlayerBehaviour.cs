@@ -82,6 +82,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public AudioSource jumpFx;
 
+    public AudioClip dashFx;
+
     // Use this for initialization
     void Start()
     {
@@ -252,6 +254,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(dash && !isGrounded && canDash)
         {
             dashCloudsPS.Play();
+            jumpFx.PlayOneShot(dashFx);
 
             if(facingRight)
                 rb.velocity = new Vector3(rb.velocity.x + dashSpeed, 0, 0);

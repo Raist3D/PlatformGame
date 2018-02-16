@@ -12,7 +12,9 @@ public class PotionBehaviour : MonoBehaviour
 
     public bool gravity;
 
-
+    public AudioClip boxDestroyFx;
+    public AudioSource potionAS;
+ 
     // Use this for initialization
     void Start ()
     {
@@ -46,10 +48,14 @@ public class PotionBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider potionTrigger)
     {
+
+
         if(potionTrigger.tag == "Enemy")
         {
             enemyHealth doDamage = potionTrigger.GetComponent<enemyHealth>();
             doDamage.AddDamage(potionDamage);
+            AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 35f));
+
             timeExplode = 2;
             radiusDamage.enabled = true;
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);
@@ -58,13 +64,16 @@ public class PotionBehaviour : MonoBehaviour
         {
             DestroyItems doDamage = potionTrigger.GetComponent<DestroyItems>();
             doDamage.AddDamage(potionDamage);
+            AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 35f));
+
             timeExplode = 2;
             radiusDamage.enabled = true;
             //doDamage.DamageFX(transform.position, transform.localEulerAngles);
-            Debug.Log(potionTrigger.gameObject.layer);
         }
         if(potionTrigger.tag == "Ground")
         {
+            AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 31.5f));
+
             timeExplode = 2;
             radiusDamage.enabled = true;
         }

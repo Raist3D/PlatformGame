@@ -11,6 +11,8 @@ public class TutorialMesages : MonoBehaviour
     public bool playerNear;
     public Image tutorialMessage;
 
+    public AudioSource tutorialFx;
+
     Animator anim;
 
 
@@ -27,6 +29,7 @@ public class TutorialMesages : MonoBehaviour
         {
             tutorialMessage.gameObject.SetActive(true);
 
+
         }
         else
         {
@@ -40,6 +43,7 @@ public class TutorialMesages : MonoBehaviour
         if(other.tag == "Player")
         {
             playerNear = true;
+            tutorialFx.Play();
         }
 
     }

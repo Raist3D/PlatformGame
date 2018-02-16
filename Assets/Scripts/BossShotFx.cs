@@ -7,11 +7,14 @@ public class BossShotFx : MonoBehaviour
 
     public Transform Fx;
 
+    public AudioClip fireballExplosionFx;
+
+
 
     // Use this for initialization
     void Start ()
     {
-		
+        fireballExplosionFx = GetComponent<AudioClip>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +30,7 @@ public class BossShotFx : MonoBehaviour
             var effect = Instantiate(Fx, transform.position, transform.rotation);
 
             Destroy(effect.gameObject, 2);
+
             //Destroy(gameObject);
 
         }

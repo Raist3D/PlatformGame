@@ -6,9 +6,6 @@ public class CoinFx : MonoBehaviour
 {
 
     public Transform Fx;
-    public AudioSource coinFx;
-
-
 
     // Use this for initialization
     void Start ()
@@ -30,7 +27,6 @@ public class CoinFx : MonoBehaviour
 
             Destroy(effect.gameObject, 2);
             Destroy(gameObject);
-
         }
     }
 

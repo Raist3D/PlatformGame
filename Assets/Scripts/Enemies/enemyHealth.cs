@@ -14,7 +14,6 @@ public class enemyHealth : MonoBehaviour
     public bool drop;
     public GameObject dropItem;
 
-    public AudioClip deathSound;
     public bool canBurn;
     public float burnDamage;
     public float burnTime;
@@ -31,8 +30,9 @@ public class enemyHealth : MonoBehaviour
     AudioSource enemyAudioSource;
 
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
         currentHealth = enemyMaxHealth;
         enemyHealthSlider.maxValue = enemyMaxHealth;
@@ -91,10 +91,11 @@ public class enemyHealth : MonoBehaviour
     {
         //quitar movimiento
 
-        //AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
-
         Destroy(gameObject.transform.root.gameObject);
 
         if (drop) Instantiate(dropItem, transform.position, transform.rotation);
+        
+        //AudioSource.PlayClipAtPoint(deathFx, transform.position, 0.5f);
+
     }
 }
