@@ -23,6 +23,9 @@ GameObject:
   - component: {fileID: 23200231701471250}
   - component: {fileID: 95221613068311830}
   - component: {fileID: 65099860837047898}
+  - component: {fileID: 65514851627420766}
+  - component: {fileID: 114015005033828176}
+  - component: {fileID: 114741688038444944}
   m_Layer: 9
   m_Name: Platform_SMALL_FAT
   m_TagString: Ground
@@ -37,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490195879017192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 299.1, y: 21.3, z: 4}
+  m_LocalPosition: {x: 337.45, y: 14.45, z: 4}
   m_LocalScale: {x: 0.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,6 +99,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20.1, y: 2.955, z: 8.15}
   m_Center: {x: 0.0036587715, y: -0.996368, z: -3.9249997}
+--- !u!65 &65514851627420766
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490195879017192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.2, y: 2.97, z: 8.3}
+  m_Center: {x: 0.0036587715, y: -0.996368, z: -3.9249997}
 --- !u!95 &95221613068311830
 Animator:
   serializedVersion: 3
@@ -113,3 +128,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114015005033828176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490195879017192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852ab7f4dd761cf498e13a9410451f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114741688038444944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490195879017192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d47c539879831b48bce3ccd2eaa0860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 1, y: 0}
+  speed: 5
+  timePatrol: 3
+  timeCounter: 0

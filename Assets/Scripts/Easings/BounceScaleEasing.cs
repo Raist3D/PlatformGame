@@ -11,6 +11,9 @@ public class BounceScaleEasing : MonoBehaviour
 
     private Vector3 deltaValue;
 
+    public AudioSource logoAS;
+    public AudioClip logoFx;
+
 
     // Use this for initialization
     private void Start()
