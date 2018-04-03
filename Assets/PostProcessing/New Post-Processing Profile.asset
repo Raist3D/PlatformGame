@@ -33,7 +33,7 @@ MonoBehaviour:
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 0
+        preset: 4
       taaSettings:
         jitterSpread: 0.75
         sharpen: 0.3
@@ -138,9 +138,9 @@ MonoBehaviour:
           power: {r: 1, g: 0.988584, b: 0.99714607, a: 0}
           offset: {r: 0.9434296, g: 0.99742913, b: 1, a: 0}
         linear:
-          lift: {r: 1, g: 0.75552976, b: 0.47661823, a: 0}
-          gamma: {r: 1, g: 0.6681497, b: 0.93885773, a: 0}
-          gain: {r: 0.8947759, g: 1, b: 0.74323213, a: 0}
+          lift: {r: 1, g: 0.5155172, b: 0.26421458, a: 0}
+          gamma: {r: 1, g: 0.4577797, b: 0.59913874, a: 0}
+          gain: {r: 1, g: 0.6380331, b: 0.37711865, a: 0}
       curves:
         master:
           curve:
