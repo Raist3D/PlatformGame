@@ -1349,7 +1349,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.575
+      value: 0.766
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1510,6 +1510,7 @@ MonoBehaviour:
   distanceFromPlayer: 0
   rangeDetection: 0
   stunTime: 0
+  anim: {fileID: 0}
 --- !u!114 &114177030867624540
 MonoBehaviour:
   m_ObjectHideFlags: 1
