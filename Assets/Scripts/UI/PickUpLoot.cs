@@ -8,13 +8,16 @@ public class PickUpLoot : MonoBehaviour
 {
 
     Currency currentGold;
-    public AudioClip coinFx;
+    public AudioSource coinFx;
 
     public int addAmount;
 
     void Start()
     {
         currentGold = GameObject.FindGameObjectWithTag("GameController").GetComponent<Currency>();
+
+        coinFx = GameObject.Find("AudioSourceCoin").GetComponent<AudioSource>();
+
     }
 
     void OnTriggerEnter(Collider obj)
@@ -22,8 +25,14 @@ public class PickUpLoot : MonoBehaviour
         if(obj.gameObject.tag == "Player")
         {
             currentGold.gold += addAmount;
-            Destroy(gameObject, 2);
-            AudioSource.PlayClipAtPoint(coinFx, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 31.6f));
+
+            coinFx.Play();
+
+            gameObject.SetActive(false);
+            //Destroy(gameObject, 2);
+
+
+            //AudioSource.PlayClipAtPoint(coinFx, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 31.6f));
 
         }
     }

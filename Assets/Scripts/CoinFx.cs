@@ -26,7 +26,9 @@ public class CoinFx : MonoBehaviour
             var effect = Instantiate(Fx, transform.position, transform.rotation);
 
             Destroy(effect.gameObject, 2);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+
         }
     }
 

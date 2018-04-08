@@ -12,7 +12,6 @@ public class PotionBehaviour : MonoBehaviour
 
     public bool gravity;
 
-    public AudioClip boxDestroyFx;
     public AudioSource potionAS;
  
     // Use this for initialization
@@ -21,6 +20,8 @@ public class PotionBehaviour : MonoBehaviour
         timeExplode = -1;
         radiusDamage.enabled = false;
         gravity = true;
+
+        potionAS = GameObject.Find("AudioSourceExplosion").GetComponent<AudioSource>();
 
     }
 
@@ -54,7 +55,8 @@ public class PotionBehaviour : MonoBehaviour
         {
             enemyHealth doDamage = potionTrigger.GetComponent<enemyHealth>();
             doDamage.AddDamage(potionDamage);
-            AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 35f));
+            //AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 35f));
+            potionAS.Play();
 
             timeExplode = 2;
             radiusDamage.enabled = true;
@@ -64,7 +66,8 @@ public class PotionBehaviour : MonoBehaviour
         {
             DestroyItems doDamage = potionTrigger.GetComponent<DestroyItems>();
             doDamage.AddDamage(potionDamage);
-            AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 35f));
+            //AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 35f));
+            potionAS.Play();
 
             timeExplode = 2;
             radiusDamage.enabled = true;
@@ -72,7 +75,8 @@ public class PotionBehaviour : MonoBehaviour
         }
         if(potionTrigger.tag == "Ground")
         {
-            AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 31.5f));
+            //AudioSource.PlayClipAtPoint(boxDestroyFx, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 31.5f));
+            potionAS.Play();
 
             timeExplode = 2;
             radiusDamage.enabled = true;

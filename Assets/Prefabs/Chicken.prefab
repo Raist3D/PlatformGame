@@ -1319,8 +1319,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 20
+  MinDistance: 25.9
+  MaxDistance: 33.74
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -1349,7 +1349,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.766
+      value: 0.814
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1361,7 +1361,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1373,7 +1373,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 1.046
       inSlope: 0
       outSlope: 0
       tangentMode: 0
