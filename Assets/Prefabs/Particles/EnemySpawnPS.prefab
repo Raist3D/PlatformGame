@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 4880910824784124}
   - component: {fileID: 198248853559914224}
   - component: {fileID: 199370025769932126}
-  - component: {fileID: 114765437530353640}
   m_Layer: 0
   m_Name: EnemySpawnPS
   m_TagString: Untagged
@@ -197,18 +196,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114765437530353640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1508002252387840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
 --- !u!198 &198078146684433822
 ParticleSystem:
   m_ObjectHideFlags: 1

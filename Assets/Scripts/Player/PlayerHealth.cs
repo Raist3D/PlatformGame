@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = fullHealth;
 
+
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(!playerBh.immune)
         {
+
             playerBh.Stun(knock);
 
             currentHealth -= damage;

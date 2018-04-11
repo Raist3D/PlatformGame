@@ -7,6 +7,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public bool gravity;
 
+    public MeleeWeaponTrail dashTrailScript;
+    public MeleeWeaponTrail damagedTrailScript;
+
     [Header("Physics")]
     public float jumpForce;
     public Rigidbody rb;
@@ -95,6 +98,9 @@ public class PlayerBehaviour : MonoBehaviour
         gravity = true;
         canThrowPotion = true;
 
+        // playerTrailScript.enabled = false;
+        dashTrailScript.Emit = false;
+        damagedTrailScript.Emit = false;
 
         // anim = GetComponent<Animator>();
     }
@@ -198,7 +204,11 @@ public class PlayerBehaviour : MonoBehaviour
         if(stunDamaged)
         {
             if(stunFinish < Time.time)
+            {
                 stunDamaged = false;
+                damagedTrailScript.Emit = false;
+
+            }
         }
 
         if(immune)
@@ -253,8 +263,12 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(dash && !isGrounded && canDash)
         {
+            anim.SetBool("dashAnim", true);
+
             dashCloudsPS.Play();
             jumpFx.PlayOneShot(dashFx);
+
+            dashTrailScript.Emit = true;
 
             if(facingRight)
                 rb.velocity = new Vector3(rb.velocity.x + dashSpeed, 0, 0);
@@ -275,11 +289,15 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (timeDash <= 0.0f)
             {
+                anim.SetBool("dashAnim", false);
+
                 isDashing = false;
                 gravity = true;
                 rb.velocity = Vector3.zero;
+                dashTrailScript.Emit = false;
+
             }
-                
+
         }
 
         //MOVE PLAYER
@@ -348,6 +366,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void Stun(Vector3 knock)
     {
+        damagedTrailScript.Emit = true;
+
         stunDamaged = true;
         immune = true;
         stunFinish = Time.time + stunTime;
