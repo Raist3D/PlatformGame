@@ -14,7 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
     //mov. options
     public float runSpeed;
     public float walkspeed;
-    public bool facingRight = true;
+    public bool facingRight;
 
     float movSpeed;
     bool running;
@@ -37,6 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        //facingRight = false;
         rb = GetComponentInParent<Rigidbody>();
         anim = GetComponentInParent<Animator>();
 
@@ -45,7 +46,7 @@ public class EnemyBehaviour : MonoBehaviour
         firstDetection = false;
         movSpeed = walkspeed;
 
-        if(Random.Range(0, 10) > 5) Flip();
+        //if(Random.Range(0, 10) > 5) Flip();
 	}
 	
 	// Update is called once per frame
@@ -57,8 +58,11 @@ public class EnemyBehaviour : MonoBehaviour
 
             if(timeCounter >= timePatrol)
             {
+                Flip();
+
                 speed *= -1;
                 timeCounter = 0;
+
             }
             else timeCounter += Time.deltaTime;
         }

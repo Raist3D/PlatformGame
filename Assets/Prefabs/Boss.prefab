@@ -143,7 +143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4791046736761058}
   - component: {fileID: 108728397619398442}
-  - component: {fileID: 114797262138165186}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -293,7 +292,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4649703190517162}
   - component: {fileID: 108749044806596578}
-  - component: {fileID: 114845511150632542}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -611,7 +609,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436570117335428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 449.1, y: -2.89, z: 0}
+  m_LocalPosition: {x: 458.2, y: -2.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224224898493084046}
@@ -1176,7 +1174,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 9.13, z: 5.03}
-  m_Center: {x: -27.92, y: 2.54, z: 1.35}
+  m_Center: {x: -37.4, y: 2.54, z: 1.35}
 --- !u!65 &65768685508605770
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1509,7 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa5fa5fbb0799c45b3b9c37fb2c1cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   directionForce: {x: 15, y: 30}
   distanceFromPlayer: 0
   rangeDetection: 0
@@ -1526,9 +1524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8501071ee27adf14a8bc8d08da117554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1597867750527870, guid: 28193f1253b9a6549a50b6b910bdbd82,
+  enemyPrefab: {fileID: 1145780890612100, guid: f0a01c12709c54f449b2aac0bf167276,
     type: 2}
-  spawnRatio: 8
+  spawnRatio: 7
   nextEnemy: 0
   isActive: 0
   trigger: {fileID: 65145131045655342}
@@ -1617,7 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ebf9ec02312164bb9a7f85b78dcc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotRatio: 5
+  shotRatio: 4
   fireBall: {fileID: 1963536369480740, guid: 326f70dca4ddb444e960b57ce8ff50e4, type: 2}
   playerTransform: {fileID: 0}
   isActive: 0
@@ -1635,7 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67de34ed93a04e743a0755a119680f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 35
+  enemyMaxHealth: 40
   currentHealth: 0
   damageModifier: 1
   drop: 1
@@ -1713,34 +1711,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114797262138165186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1152971616575572}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74eb290077a495b4f8489f895b2cc599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 1
-  smoothFactor: 4
-  addIntensity: 0.5
---- !u!114 &114845511150632542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1426691232598798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74eb290077a495b4f8489f895b2cc599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 1
-  smoothFactor: 4
-  addIntensity: 0.5
 --- !u!114 &114970866383182276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1790,8 +1760,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.67
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.38
+  m_Center: {x: -0.5, y: 1.47, z: 0}
 --- !u!198 &198042791833164556
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2438,8 +2408,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
-        minScalar: 1
+        scalar: 30
+        minScalar: 30
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -12038,8 +12008,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
-        minScalar: 1
+        scalar: 30
+        minScalar: 30
         maxCurve:
           serializedVersion: 2
           m_Curve:

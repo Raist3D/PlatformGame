@@ -1718,9 +1718,9 @@ MonoBehaviour:
   stunDamaged: 0
   stunTime: 1
   stunFinish: 0
-  direction: {x: 0, y: 0}
-  speed: 0
-  timePatrol: 0
+  direction: {x: 1, y: 0}
+  speed: 1
+  timePatrol: 1
   timeCounter: 0
 --- !u!135 &135890669420736644
 SphereCollider:
