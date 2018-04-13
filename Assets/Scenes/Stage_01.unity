@@ -4110,6 +4110,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy 1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
   m_IsPrefabParent: 0
@@ -6327,6 +6332,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy 1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
   m_IsPrefabParent: 0
@@ -6710,6 +6720,11 @@ Prefab:
         type: 2}
       propertyPath: timePatrol
       value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
@@ -19506,6 +19521,11 @@ Prefab:
       propertyPath: walkspeed
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
   m_IsPrefabParent: 0
@@ -20874,6 +20894,11 @@ Prefab:
         type: 2}
       propertyPath: timePatrol
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
@@ -34496,6 +34521,11 @@ Prefab:
       propertyPath: timePatrol
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
   m_IsPrefabParent: 0
@@ -37333,6 +37363,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
   m_IsPrefabParent: 0
@@ -38717,6 +38752,11 @@ Prefab:
     - target: {fileID: 1145780890612100, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
       propertyPath: m_Name
       value: Enemy 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
@@ -53537,6 +53577,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy 1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
+        type: 2}
+      propertyPath: facingRight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}
   m_IsPrefabParent: 0
@@ -56575,7 +56620,7 @@ Prefab:
     - target: {fileID: 114276953754609562, guid: f0a01c12709c54f449b2aac0bf167276,
         type: 2}
       propertyPath: facingRight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0a01c12709c54f449b2aac0bf167276, type: 2}

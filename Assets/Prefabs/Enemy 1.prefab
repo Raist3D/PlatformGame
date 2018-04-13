@@ -1559,7 +1559,7 @@ MonoBehaviour:
   detectionTime: 0.75
   runSpeed: 5
   walkspeed: 2
-  facingRight: 1
+  facingRight: 0
   stunDamaged: 0
   stunTime: 1
   stunFinish: 0
