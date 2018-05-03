@@ -125,7 +125,7 @@ MonoBehaviour:
         tint: 17.6
         hueShift: 0
         saturation: 1
-        contrast: 1
+        contrast: 1.07
       channelMixer:
         red: {x: 1, y: 0.09, z: -0.37}
         green: {x: 0, y: 1, z: 0}
@@ -284,14 +284,14 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.1
+      intensity: 1
   grain:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 1
-      size: 1
-      luminanceContribution: 0.8
+      intensity: 0.589
+      size: 0.3
+      luminanceContribution: 0.72
   vignette:
     m_Enabled: 0
     m_Settings:

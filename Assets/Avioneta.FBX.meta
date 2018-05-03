@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 37c4325ecee10004ba39b6368c297990
+timeCreated: 1525356263
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: alaBOT
+    100002: AlasTraserasLados
+    100004: AlaTraseraUP
+    100006: AlaUP
+    100008: //RootNode
+    100010: Barras avioneta
+    100012: Base
+    100014: Helices
+    100016: Pantalla
+    100018: PrePunta
+    100020: Punta
+    100022: Sillon
+    400000: alaBOT
+    400002: AlasTraserasLados
+    400004: AlaTraseraUP
+    400006: AlaUP
+    400008: //RootNode
+    400010: Barras avioneta
+    400012: Base
+    400014: Helices
+    400016: Pantalla
+    400018: PrePunta
+    400020: Punta
+    400022: Sillon
+    2300000: alaBOT
+    2300002: AlasTraserasLados
+    2300004: AlaTraseraUP
+    2300006: AlaUP
+    2300008: Barras avioneta
+    2300010: Base
+    2300012: Helices
+    2300014: Pantalla
+    2300016: PrePunta
+    2300018: Punta
+    2300020: Sillon
+    3300000: alaBOT
+    3300002: AlasTraserasLados
+    3300004: AlaTraseraUP
+    3300006: AlaUP
+    3300008: Barras avioneta
+    3300010: Base
+    3300012: Helices
+    3300014: Pantalla
+    3300016: PrePunta
+    3300018: Punta
+    3300020: Sillon
+    4300000: alaBOT
+    4300002: AlasTraserasLados
+    4300004: AlaTraseraUP
+    4300006: AlaUP
+    4300008: Barras avioneta
+    4300010: Base
+    4300012: Helices
+    4300014: Pantalla
+    4300016: PrePunta
+    4300018: Punta
+    4300020: Sillon
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 4acd1d5f968c60e478268bf96849ec75, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
