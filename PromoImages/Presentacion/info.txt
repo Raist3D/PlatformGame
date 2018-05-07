@@ -1,0 +1,19 @@
+
+Fun Lab Games - Jimmy’s Journey
+
+> Nombre Grupo:      
+    Fun Lab Games
+    
+> Nombre Proyecto:   
+    Jimmy’s Journey
+    
+> Integrantes Grupo: 
+    Alvaro Santisteban
+    Vladislav Cebanu
+    
+> Sinopsis del Proyecto:
+
+Jimmy’s Journey es un juego de plataformas 2.5D en el que Jimmy, el protagonista llega un día a 
+casa y se encuentra una nota de su padre, en la que le comunica que va a emprender una expedición 
+muy urgente y que estará fuera un tiempo. Al día siguiente Jimmy, sin poder contenerse las ganas
+no se lo piensa y sale en busca de aventuras!	
