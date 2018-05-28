@@ -9,8 +9,10 @@ public class IntroOnClick : MonoBehaviour
 {
 
     public GameObject timeLine;
+    public GameObject textIntro;
     public Animator animator;
-    public AudioSource audioSource;
+    public AudioSource audioSourceMenu;
+    public AudioSource audioSourceIntro;
     public bool volume;
     public bool scene;
 
@@ -23,33 +25,57 @@ public class IntroOnClick : MonoBehaviour
     {
         if(volume)
         {
-            audioSource.volume -= Time.deltaTime * 0.2f;
+            audioSourceIntro.volume += Time.deltaTime * 0.2f;
+
+            audioSourceMenu.volume -= Time.deltaTime * 0.3f;
         }
 
         if(scene)
         {
             StartCoroutine(ChangeScene());
+            StartCoroutine(StartIntro());
+            StartCoroutine(VolumeOut());
         }
 
     }
     public void StartAnim()
     {
-        PlayableDirector pd = timeLine.GetComponent<PlayableDirector>();
+        audioSourceIntro.Play();
 
-        pd.Play();
+        textIntro.gameObject.SetActive(true);
 
         animator.enabled = true;
         volume = true;
         scene = true;
 
-
     }
 
     IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(19.5f);
 
         SceneManager.LoadScene("Stage_01");
     }
+
+    IEnumerator StartIntro()
+    {
+        yield return new WaitForSeconds(8);
+
+        PlayableDirector pd = timeLine.GetComponent<PlayableDirector>();
+
+        pd.Play();
+
+    }
+
+    IEnumerator VolumeOut()
+    {
+        yield return new WaitForSeconds(14);
+
+        audioSourceIntro.Stop();
+
+    }
+
+
+
 
 }
