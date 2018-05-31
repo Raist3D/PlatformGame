@@ -13,7 +13,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: FunLabGames
   productName: Jimmy's Journey
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: c680e0d62ae795446a8af3b2a3f72fb1, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1

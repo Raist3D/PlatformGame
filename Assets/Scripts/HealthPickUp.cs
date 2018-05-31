@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-public class PickUpLoot : MonoBehaviour
+public class HealthPickUp : MonoBehaviour
 {
 
-    public Currency currentGold;
-    public AudioSource coinFx;
+    public PlayerHealth currentHealth;
+    public AudioSource healthFx;
 
-    public int addAmount;
+    public int addAmount = 1;
 
     void Start()
     {
-        currentGold = GameObject.Find("Currency").GetComponent<Currency>();
+        currentHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
 
-        coinFx = GameObject.Find("AudioSourceCoin").GetComponent<AudioSource>();
+        healthFx = GameObject.Find("AudioSourceHearth").GetComponent<AudioSource>();
 
     }
 
@@ -24,9 +23,9 @@ public class PickUpLoot : MonoBehaviour
     {
         if(obj.gameObject.tag == "Player")
         {
-            coinFx.Play();
+            healthFx.Play();
 
-            currentGold.gold += addAmount;
+            currentHealth.currentHealth += addAmount;
 
             gameObject.SetActive(false);
             //Destroy(gameObject, 2);

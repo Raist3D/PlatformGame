@@ -10,11 +10,13 @@ public class IntroOnClick : MonoBehaviour
 
     public GameObject timeLine;
     public GameObject textIntro;
+    public GameObject skipText;
     public Animator animator;
     public AudioSource audioSourceMenu;
     public AudioSource audioSourceIntro;
     public bool volume;
     public bool scene;
+    public bool skip = false;
 
     void Start()
     {
@@ -32,9 +34,20 @@ public class IntroOnClick : MonoBehaviour
 
         if(scene)
         {
+
             StartCoroutine(ChangeScene());
             StartCoroutine(StartIntro());
             StartCoroutine(VolumeOut());
+
+        }
+        if(skip)
+        {
+            if(Input.GetButtonDown("Cancel"))
+            {
+                SceneManager.LoadScene("Stage_01");
+
+            }
+
         }
 
     }
@@ -61,7 +74,16 @@ public class IntroOnClick : MonoBehaviour
     {
         yield return new WaitForSeconds(8);
 
+
         PlayableDirector pd = timeLine.GetComponent<PlayableDirector>();
+
+        if(Input.GetButtonDown("Cancel"))
+        {
+            skip = true;
+
+            skipText.gameObject.SetActive(true);
+
+        }
 
         pd.Play();
 
